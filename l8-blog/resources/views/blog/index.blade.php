@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
-<body style="background: lightgray">
-    <div class="container mt-5">
-        <header class="p-3 bg-light text-white">
+<body style="background-image: url(https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <div class="container mt-5" style="padding: inherit;border-radius: 5px;">
+        <header class="p-3 bg-light text-white shadow rounded">
             <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -30,16 +30,16 @@
         </header>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card border-0 shadow rounded">
+                    <div class="card  shadow-lg rounded">
                         <div class="card-body">
-                            <a href="{{ route('blog.create') }}" class="btn btn-md btn-success mb-3">TAMBAH BLOG</a>
+                            <a href="{{ route('blog.create') }}" class="btn btn-md btn-success mb-3" style="background: cadetblue">ADD BOOK</a>
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th scope="col">GAMBAR</th>
-                                    <th scope="col">JUDUL</th>
-                                    <th scope="col">CONTENT</th>
-                                    <th scope="col">AKSI</th>
+                                    <th scope="col">Book Cover</th>
+                                    <th scope="col">Book Title</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -49,9 +49,10 @@
                                             <img src="{{ Storage::url('public/blogs/').$blog->image }}" class="rounded" style="width: 150px">
                                         </td>
                                         <td>{{ $blog->title }}</td>
-                                        <td>{!! $blog->content !!}</td>
+                                        <td>{{ $blog->created_at }}</td>
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('blog.destroy', $blog->id) }}" method="POST">
+                                                <a href="#" class="btn btn-sm btn-success">VIEW</a>  
                                                 <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
