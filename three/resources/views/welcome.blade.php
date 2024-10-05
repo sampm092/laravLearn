@@ -15,16 +15,47 @@
 </head>
 <body>
   <!--Main Navigation-->
+
+  <!-- BUAT LOGIN DAN REGISTER DALAM 1 PAGE TETAPI TUTUP SALAH SATUNYA DENGAN SCRIPT, JADI SLIDING -->
   <header>
     <style>
+      #father {
+       display: flex;
+       background-image: url(https://i.pinimg.com/originals/67/18/22/671822c2f63dd5f65d8fd15c9710420b.jpg);
+      }
+
       #intro {
-        background-image: url(https://mdbootstrap.com/img/new/fluid/city/008.jpg);
-        height: 100vh;
+        background-image: ;
+        height: 108vh;
+        width: 50%;
+      }
+
+      #pict {
+        background: 
+              linear-gradient(120deg, #302b19 25%, #130c0b 25%, #130c0b 50%,#302b19 50%, #302b19 75%, #130c0b 75%, #130c0b 100%, #302b19 100%);
+              background-size: 4rem 4rem;
+              animation: pattern 15s linear infinite;
+        height: 108vh;
+        width: 50%;
+      }
+
+      #pict:hover {
+        background: 
+              linear-gradient(135deg, #302b19 25%, #fff 25%, #fff 50%,#302b19 50%, #302b19 75%, #fff 75%, #fff 100%, #302b19 100%);
+              background-size: 4rem 4rem;
+              animation: pattern 2s linear infinite;
+        height: 108vh;
+        width: 50%;
+      }
+
+      @keyframes pattern {
+        to {background-position: 2rem;}
+        
       }
 
       /* Height for devices larger than 576px */
       @media (min-width: 992px) {
-        #intro {
+        #intro, #pict, #father {
           margin-top: -58.59px;
         }
       }
@@ -32,14 +63,31 @@
       .navbar .nav-link {
         color: #fff !important;
       }
+
+      .btn-primary{
+        color: #fff;
+        background-color: #130c0bdb;
+        border-color: #000000;
+      }
+
+      .btn-primary:hover{
+        color: #fff;
+        background-color: #130c0b;
+        border-color: #020606;
+      }
+
+      .form-control:hover{
+        background-color: #040705db;
+        color: white;
+      }
     </style>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
       <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand nav-link" target="_blank" href="https://mdbootstrap.com/docs/standard/">
-          <strong>MDB</strong>
+        <a class="navbar-brand nav-link" target="_blank" href="#">
+          <strong>MyBookList</strong>
         </a>
         <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#navbarExample01"
           aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,37 +96,30 @@
         <div class="collapse navbar-collapse" id="navbarExample01">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="#intro">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
-                target="_blank">Learn Bootstrap 5</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Download MDB UI KIT</a>
+              <a class="nav-link" aria-current="page" href="#father">Home</a>
             </li>
           </ul>
 
           <ul class="navbar-nav d-flex flex-row">
             <!-- Icons -->
             <li class="nav-item me-3 me-lg-0">
-              <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
+              <a class="nav-link" href="https://www.youtube.com/" rel="nofollow"
                 target="_blank">
                 <i class="fab fa-youtube"></i>
               </a>
             </li>
             <li class="nav-item me-3 me-lg-0">
-              <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
+              <a class="nav-link" href="https://www.facebook.com/" rel="nofollow" target="_blank">
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
             <li class="nav-item me-3 me-lg-0">
-              <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
+              <a class="nav-link" href="https://twitter.com/" rel="nofollow" target="_blank">
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
             <li class="nav-item me-3 me-lg-0">
-              <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
+              <a class="nav-link" href="https://github.com/SamPM092" rel="nofollow" target="_blank">
                 <i class="fab fa-github"></i>
               </a>
             </li>
@@ -89,16 +130,17 @@
     <!-- Navbar -->
 
     <!-- Background image -->
-    <div id="intro" class="bg-image shadow-2-strong">
+    <div id="father">
+      <div id="intro" class="bg-image shadow-2-strong">
       <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-xl-5 col-md-8">
+            <div class="col-sm-6 col-md-8">
               <form class="bg-white rounded shadow-5-strong p-5">
                 <!-- Email input -->
                 <div class="form-outline mb-4" data-mdb-input-init>
                   <input type="email" id="form1Example1" class="form-control" />
-                  <label class="form-label" for="form1Example1">Email address</label>
+                  <label class="form-label" for="form1Example1">Username</label>
                 </div>
 
                 <!-- Password input -->
@@ -112,9 +154,8 @@
                   <div class="col d-flex justify-content-center">
                     <!-- Checkbox -->
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
                       <label class="form-check-label" for="form1Example3">
-                        Remember me
+                        
                       </label>
                     </div>
                   </div>
@@ -131,6 +172,10 @@
             </div>
           </div>
         </div>
+      </div>
+      </div>
+      <div id="pict" class="bg-image shadow-2-strong">
+        test
       </div>
     </div>
     <!-- Background image -->
