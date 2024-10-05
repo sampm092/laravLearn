@@ -98,6 +98,9 @@
             <li class="nav-item active">
               <a class="nav-link" aria-current="page" href="#father">Home</a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="#">About</a>
+            </li>
           </ul>
 
           <ul class="navbar-nav d-flex flex-row">
