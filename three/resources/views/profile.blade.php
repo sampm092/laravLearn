@@ -4,6 +4,12 @@ BOOK LIST -->
 @extends('layout.header')
 
         @section('content')
+        <style>
+            svg{
+                width: 2rem;
+            }
+
+        </style>
             <div class="row">
                 <div class="col-md-12">
                 <div class="card-body bg-light">
@@ -28,10 +34,11 @@ BOOK LIST -->
                                         <td>{{ $book->author }}</td>
                                         <td>{{ $book->created_at }}</td>
                                         <td class="text-center">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="" method="POST">
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('delete', $book->id) }}" method="POST">
                                                 <a href="#" class="btn btn-sm btn-success">VIEW</a>  
                                                 <a href="#" class="btn btn-sm btn-primary">EDIT</a>
-
+                                                @csrf
+                                                @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                             </form>
                                         </td>
@@ -39,7 +46,9 @@ BOOK LIST -->
                                     @endforeach
                                 </tbody>
                             </table>  
-
+                            <!-- <div style="width: 2px"> -->
+                            {{ $books->links() }}
+<!-- </div> -->
                         </div>
                 </div>
             </div>

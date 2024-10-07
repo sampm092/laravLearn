@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
     public function profile() {
-        return view('profile', [
-            'books' => Book::all()
-        ]);
+        $books = Book::latest()->paginate(2);
+        return view('profile', compact('books'));
     }
 
     public function createV(){
@@ -43,5 +43,17 @@ class ProfileController extends Controller
             return redirect()->route('profile')->with(['error' => 'Data gagal bang']);
         }
     }
-    
+    public function destroy($id){
+        $book = Book::findOrFail($id);
+        Storage::disk('local')->delete('public/books/'.$book->cover);
+        $book->delete();
+
+        if($book){
+            //redirect dengan pesan sukses
+            return redirect()->route('profile')->with(['success' => 'Data Berhasil Dihapus!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('profile')->with(['error' => 'Data Gagal Dihapus!']);
+        }
+    }
 }
