@@ -7,7 +7,7 @@ BOOK LIST -->
             <div class="row">
                 <div class="col-md-12">
                 <div class="card-body bg-light">
-                        <a href="#" class="btn btn-md btn-success mb-3" style="background: cadetblue">ADD BOOK</a>
+                        <a href="{{ route('create') }}" class="btn btn-md btn-success mb-3" style="background: cadetblue">ADD BOOK</a>
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
@@ -22,7 +22,7 @@ BOOK LIST -->
                                     @foreach ($books as $book)
                                     <tr>
                                         <td class="text-center">
-                                            <img src="" class="rounded" style="width: 150px">
+                                            <img src=" {{ Storage::url('public/books/'.$book->cover) }} " class="rounded" style="width: 150px">
                                         </td>
                                         <td>{{ $book->title }}</td>
                                         <td>{{ $book->author }}</td>
