@@ -23,18 +23,30 @@
     <style>
       #father {
         display: flex;
+        position: relative;
         background-image: url(https://i.pinimg.com/originals/67/18/22/671822c2f63dd5f65d8fd15c9710420b.jpg);
       }
 
-      #login {
-        height: 108vh;
+      .cover {
         width: 50%;
+        height: 108vh;
+        /* Semi-transparent cover */
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* Hidden by default */
+        transition: top 1s ease, left 1s ease;
+
       }
 
+      #login,
       #regist {
         height: 108vh;
         width: 50%;
+        position: relative;
+        display: inline-block;
       }
+
 
       .none {
         display: none;
@@ -60,6 +72,7 @@
         }
 
       }
+
 
       /* Height for devices larger than 576px */
 
@@ -94,7 +107,7 @@
     <div id="father">
       <div id="login" class="bg-image shadow-2-strong" style="background-color: rgba(0, 0, 0, 0.8);">
         <div id="bigC1" class="">
-          <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+          <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;position: inherit">
             <div class="container-fluid">
               <!-- Navbar brand -->
               <a class="navbar-brand nav-link" target="_blank" href="#">
@@ -143,8 +156,11 @@
           <div id="cont" class="mask d-flex align-items-center h-100 mt-5">
             <div class="container">
               <div class="row justify-content-center">
+               
                 <div class="col-sm-6 col-md-8">
+                  
                   <form class="bg-white rounded shadow-5-strong p-5">
+                    
                     <!-- Email input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
                       <input type="email" id="form1Example1" class="form-control" />
@@ -178,9 +194,7 @@
                     <button type="submit" class="btn btn-primary btn-block" data-mdb-ripple-init>Sign in</button>
 
                     <div class="col text-center mt-3">
-                      <!-- Simple link -->
-                      <!-- <a href="javascript:swapDivs()">No Account?</a> -->
-                      <a href="javascript:toRegist()">No Account?</a> <!-- COBA PAKE HOVER AJA -->
+                      <a href="javascript:moveCover('login')">No Account?</a>
                     </div>
                 </div>
                 </form>
@@ -189,9 +203,9 @@
           </div>
         </div>
       </div>
-      <div id="regist" class="bg-image shadow-2-strong pict" style="background-color: rgba(0, 0, 0, 0.8);">
-        <div id="bigC2" class="none">
-          <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+      <div id="regist" class="bg-image shadow-2-strong" style="background-color: rgba(0, 0, 0, 0.8);">
+        <div id="bigC2" class="">
+          <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000; position: inherit">
             <div class="container-fluid">
               <!-- Navbar brand -->
               <a class="navbar-brand nav-link" target="_blank" href="#">
@@ -275,9 +289,7 @@
                     <button type="submit" class="btn btn-primary btn-block" data-mdb-ripple-init>Sign in</button>
 
                     <div class="col text-center mt-3">
-                      <!-- Simple link -->
-                      <!-- <a href="javascript:swapDivs()">No Account?</a> -->
-                      <a href="javascript:toLogin()">Already have an account?</a> <!-- COBA PAKE HOVER AJA -->
+                      <a href="javascript:moveCover('regist')">Already have an account?</a>
                     </div>
                 </div>
                 </form>
@@ -285,6 +297,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div id="cover" class="cover pict">
+
       </div>
     </div>
 
@@ -366,6 +381,16 @@
 
     }
 
+    function moveCover(targetDivId) {
+      // Get the target content div
+      const targetDiv = document.getElementById(targetDivId);
+      // Get the cover div
+      const cover = document.getElementById("cover");
+
+      // Move the cover div smoothly to the position of the target div
+      cover.style.top = `${targetDiv.offsetTop}px`;
+      cover.style.left = `${targetDiv.offsetLeft}px`;
+    }
 
     // function swapDivs() {
     // // Get the two div elements by their IDs
