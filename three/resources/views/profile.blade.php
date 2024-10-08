@@ -46,9 +46,7 @@ BOOK LIST -->
                                     @endforeach
                                 </tbody>
                             </table>  
-                            <!-- <div style="width: 2px"> -->
                             {{ $books->links() }}
-<!-- </div> -->
                         </div>
                 </div>
             </div>
