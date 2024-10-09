@@ -55,5 +55,48 @@ class ProfileController extends Controller
             //redirect dengan pesan error
             return redirect()->route('profile')->with(['error' => 'Data Gagal Dihapus!']);
         }
+        
+    }
+
+    public function edit(Book $book){
+        return view('edit', compact('book'));
+    }
+
+    public function update(Request $request, Book $book){
+        $this->validate($request, [
+            'title'     => 'required',
+            'author'=> 'required',
+            'desc'   => 'required'
+        ]);
+        $book = Book::findOrFail($book->id);
+
+        if($request->file('cover') == ""){
+            $book->update([
+                'title'     => $request->title,
+                'author' => $request->author,
+                'desc'   => $request->desc
+            ]);
+        } else {
+            //hapus image lama
+            Storage::disk('local')->delete('public/books/'.$book->cover);
+            //upload new image
+            $image = $request->file('cover');
+            $image->storeAs('public/books', $image->hashName());
+
+            $book->update([
+                'image'     => $image->hashName(),
+                'title'     => $request->title,
+                'author' => $request->author,
+                'desc'     => $request->desc
+            ]);
+            
+        }
+        if($book){
+            //redirect dengan pesan sukses
+            return redirect()->route('profile')->with(['success' => 'Data Berhasil Diupdate!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('profile')->with(['error' => 'Data Gagal Diupdate!']);
+        }
     }
 }

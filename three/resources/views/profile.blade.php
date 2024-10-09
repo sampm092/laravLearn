@@ -36,7 +36,7 @@ BOOK LIST -->
                                         <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('delete', $book->id) }}" method="POST">
                                                 <a href="#" class="btn btn-sm btn-success">VIEW</a>  
-                                                <a href="#" class="btn btn-sm btn-primary">EDIT</a>
+                                                <a href=" {{ route('edit', $book->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>

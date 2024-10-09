@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- BUKAN LANDING PAGE -->
 
 <head>
   <meta charset="UTF-8" />
@@ -33,7 +34,7 @@
         /* Semi-transparent cover */
         position: absolute;
         top: 0;
-        left: 0;
+        left: 50%;
         /* Hidden by default */
         transition: top 1s ease, left 1s ease;
 
@@ -156,11 +157,11 @@
           <div id="cont" class="mask d-flex align-items-center h-100 mt-5">
             <div class="container">
               <div class="row justify-content-center">
-               
+
                 <div class="col-sm-6 col-md-8">
-                  
+
                   <form class="bg-white rounded shadow-5-strong p-5">
-                    
+
                     <!-- Email input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
                       <input type="email" id="form1Example1" class="form-control" />
@@ -386,6 +387,7 @@
       const targetDiv = document.getElementById(targetDivId);
       // Get the cover div
       const cover = document.getElementById("cover");
+
 
       // Move the cover div smoothly to the position of the target div
       cover.style.top = `${targetDiv.offsetTop}px`;
