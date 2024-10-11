@@ -14,13 +14,13 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <form action="{{ route('update', $book->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('update', $book->id) }}" method="PUT" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Cover</label>
-                                <input type="file" class="form-control" name="cover">
+                                <input type="file" class="form-control" name="cover" value="{{ old('cover', $book->cover)}}">
                             </div>
 
                             <div class="form-group">
@@ -61,6 +61,7 @@
 
                             <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
+                            <a href="{{ route('profile') }}" class="btn btn-md btn-secondary">back</a>
 
                         </form> 
                     </div>

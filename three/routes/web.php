@@ -20,5 +20,5 @@ Route::get('/profile', [ProfileController::class, 'profile'])->name('profile'); 
 Route::get('/create', [ProfileController::class, 'createV'])->name('create');
 Route::post('/profile',[ProfileController::class, 'store'])->name('store'); 
 Route::delete('/profile/{id}',[ProfileController::class, 'destroy'])->name('delete'); 
-Route::get('/edit/{id}', [ProfileController::class, 'edit'])->name('edit');
-Route::put('/profile', [ProfileController::class, 'update'])->name('update');
+Route::get('{book}/edit', [ProfileController::class, 'edit'])->name('edit');
+Route::get('{book}/', [ProfileController::class, 'update'])->name('update');

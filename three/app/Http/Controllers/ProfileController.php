@@ -59,20 +59,16 @@ class ProfileController extends Controller
     }
 
     public function edit(Book $book){
+        dump(Book::all());
         return view('edit', compact('book'));
     }
 
     public function update(Request $request, Book $book){
-        $this->validate($request, [
-            'title'     => 'required',
-            'author'=> 'required',
-            'desc'   => 'required'
-        ]);
         $book = Book::findOrFail($book->id);
 
         if($request->file('cover') == ""){
             $book->update([
-                'title'     => $request->title,
+                'title'  => $request->title,
                 'author' => $request->author,
                 'desc'   => $request->desc
             ]);
