@@ -80,9 +80,9 @@ class ProfileController extends Controller
                 'author' => $request->author,
                 'content' => $request->content
             ]);
-        } else {
+        } else if( File::exists($request->file('cover'))) {
             //hapus image lama
-            Storage::disk('local')->delete('public/books/' . $book->cover);
+            Storage::disk('local')->delete('public/books/'.$book->cover);
             //upload new image
             $image = $request->file('cover');
             $image->storeAs('public/books', $image->hashName());
@@ -94,8 +94,11 @@ class ProfileController extends Controller
                 'content' => $request->content
             ]);
 
+        } else{
+            echo'gagal';
         }
 
+        
         if ($book) {
             //redirect dengan pesan sukses
             return redirect()->route('profile')->with(['success' => 'Data Berhasil Diupdate!']);
