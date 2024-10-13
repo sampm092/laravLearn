@@ -3,4 +3,5 @@ blog = 2nd practice using https://qadrlabs.com/post/belajar-laravel-8-membuat-ap
 three = 3rd practice using https://youtu.be/iniIUcAKuLA?si=61-DTKNDjrIEEhb2 with my own project
 
 Three flowchart
-![image](https://github.com/user-attachments/assets/97f849ec-c760-4410-89d0-25928047554f)
+![image](https://github.com/user-attachments/assets/9386ddac-1570-43cb-a394-0d0671a604a3)
+
