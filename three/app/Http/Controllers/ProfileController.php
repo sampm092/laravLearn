@@ -42,9 +42,9 @@ class ProfileController extends Controller
 
         if ($book) {
             # pesan sukses
-            return redirect()->route('profile')->with(['success' => 'Data aman bang']);
+            return redirect()->route('profile')->with(['success' => 'Book added successfully']);
         } else {
-            return redirect()->route('profile')->with(['error' => 'Data gagal bang']);
+            return redirect()->route('profile')->with(['error' => 'Process failed']);
         }
     }
     public function destroy($id)
@@ -55,10 +55,10 @@ class ProfileController extends Controller
 
         if ($book) {
             //redirect dengan pesan sukses
-            return redirect()->route('profile')->with(['success' => 'Data Berhasil Dihapus!']);
+            return redirect()->route('profile')->with(['success' => 'Book deleted successfully !']);
         } else {
             //redirect dengan pesan error
-            return redirect()->route('profile')->with(['error' => 'Data Gagal Dihapus!']);
+            return redirect()->route('profile')->with(['error' => 'Book can not be deleted']);
         }
 
     }
@@ -80,9 +80,9 @@ class ProfileController extends Controller
                 'author' => $request->author,
                 'content' => $request->content
             ]);
-        } else if( File::exists($request->file('cover'))) {
+        } else if (File::exists($request->file('cover'))) {
             //hapus image lama
-            Storage::disk('local')->delete('public/books/'.$book->cover);
+            Storage::disk('local')->delete('public/books/' . $book->cover);
             //upload new image
             $image = $request->file('cover');
             $image->storeAs('public/books', $image->hashName());
@@ -94,17 +94,23 @@ class ProfileController extends Controller
                 'content' => $request->content
             ]);
 
-        } else{
-            echo'gagal';
+        } else {
+            echo 'gagal';
         }
 
-        
+
         if ($book) {
             //redirect dengan pesan sukses
-            return redirect()->route('profile')->with(['success' => 'Data Berhasil Diupdate!']);
+            return redirect()->route('profile')->with(['success' => 'Book updated successfully!']);
         } else {
             //redirect dengan pesan error
-            return redirect()->route('profile')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('profile')->with(['error' => 'Update failed']);
         }
+    }
+
+    public function view(Book $book)
+    {
+        dump(Book::all());
+        return view('view', compact('book'));
     }
 }

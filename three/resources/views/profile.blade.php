@@ -9,6 +9,8 @@ BOOK LIST -->
         width: 2rem;
     }
 </style>
+
+@include('layout.notif')
 <div class="row">
     <div class="col-md-12">
         <div class="card-body bg-light">
@@ -37,7 +39,7 @@ BOOK LIST -->
                             <td class="text-center">
                                 <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                     action="{{ route('delete', $book->id) }}" method="POST">
-                                    <a href="#" class="btn btn-sm btn-success">VIEW</a>
+                                    <a href=" {{ route('view', $book->id) }}" class="btn btn-sm btn-success">VIEW</a>
                                     <a href=" {{ route('edit', $book->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                     @csrf
                                     @method('DELETE')

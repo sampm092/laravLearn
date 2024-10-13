@@ -22,3 +22,4 @@ Route::post('/profile',[ProfileController::class, 'store'])->name('store');
 Route::delete('/profile/{id}',[ProfileController::class, 'destroy'])->name('delete'); 
 Route::get('{book}/edit', [ProfileController::class, 'edit'])->name('edit');
 Route::put('{book}/', [ProfileController::class, 'update'])->name('update');
+Route::get('/view', [ProfileController::class, 'view'])->name('view');

@@ -24,7 +24,7 @@
                                 <label class="font-weight-bold">Cover</label>
                                 <input type="file" class="form-control" name="cover">
                             </div>
-                            
+
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Title</label>
