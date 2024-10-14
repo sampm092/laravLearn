@@ -11,8 +11,15 @@ class ProfileController extends Controller
 {
     public function profile()
     {
-        $books = Book::latest()->paginate(10);
-        return view('profile', compact('books'));
+        $books = Book::orderBy('created_at', 'DESC');
+
+        if (request()->has('search')) {
+            $books = $books->where('title', 'LIKE', '%' . request()->get('search', '') . '%')
+                ->orWhere('author', 'LIKE', '%' . request()->get('search', '') . '%');
+        }
+        return view('profile', [
+            'books' => $books->paginate(5)
+        ]);
     }
 
     public function createV()
