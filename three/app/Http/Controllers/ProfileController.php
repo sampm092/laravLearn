@@ -25,7 +25,7 @@ class ProfileController extends Controller
         $this->validate($request, [
             'cover' => 'required|image|mimes:png,jpg,jpeg',
             'title' => 'required',
-            'author' => 'required',
+            'author' => 'required|max:200',
             'desc' => 'required'
         ]);
         // upload image
@@ -65,7 +65,7 @@ class ProfileController extends Controller
 
     public function edit(Book $book)
     {
-        dump(Book::all());
+
         return view('edit', compact('book'));
     }
 
@@ -73,6 +73,11 @@ class ProfileController extends Controller
     {
 
         $book = Book::findOrFail($book->id);
+        $this->validate($request, [
+            'title' => 'required',
+            'author' => 'required |max:200',
+            'desc' => 'required'
+        ]);
 
         if ($request->file('cover') == "") {
             $book->update([
@@ -110,7 +115,6 @@ class ProfileController extends Controller
 
     public function view(Book $book)
     {
-        dump(Book::all());
         return view('view', compact('book'));
     }
 }
