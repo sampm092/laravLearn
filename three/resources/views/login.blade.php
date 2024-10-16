@@ -160,7 +160,7 @@
 
                 <div class="col-sm-6 col-md-8">
 
-                  <form class="bg-white rounded shadow-5-strong p-5">
+                  <form class="bg-white rounded shadow-5-strong p-5" action="{{ route('dashboard') }}" >
 
                     <!-- Email input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
@@ -287,7 +287,7 @@
                     </div>
 
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block" data-mdb-ripple-init>Sign in</button>
+                    <button type="submit" class="btn btn-primary btn-block" data-mdb-ripple-init>Register</button>
 
                     <div class="col text-center mt-3">
                       <a href="javascript:moveCover('regist')">Already have an account?</a>

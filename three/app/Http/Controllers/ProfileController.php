@@ -22,6 +22,19 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function bookView()
+    {
+        $books = Book::orderBy('created_at', 'DESC');
+
+        if (request()->has('search')) {
+            $books = $books->where('title', 'LIKE', '%' . request()->get('search', '') . '%')
+                ->orWhere('author', 'LIKE', '%' . request()->get('search', '') . '%');
+        }
+        return view('dashboard', [
+            'books' => $books->paginate(10)
+        ]);
+    }
+
     public function createV()
     {
         return view('create');

@@ -20,6 +20,18 @@
         background-color: transparent;
     }
 
+    #hover2 {
+        color: #ffc107;
+        background-color: transparent;
+        border-color: #ffc107;
+    }
+
+    #hover2:hover {
+        color: #212529;
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
     .shadows {
         box-shadow: 0 .1rem 1rem #000 !important;
     }
@@ -47,7 +59,7 @@
                 <li><a href="#" class="nav-link px-2 text-warning">About</a></li>
             </ul>
             <div class="text-end ms-auto" style="margin-left: auto">
-                <a type="button" href="{{ route('login') }}"class="btn btn-outline-warning btn-dark me-2">Login</a>
+                <a id="hover2" type="button" href="{{ route('login') }}"class="btn btn-outline-warning btn-dark me-2">Login</a>
                 <a id="hover1" type="button" class=" btn me-2" href="../">Register</a>
             </div>
         </div>
