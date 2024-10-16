@@ -100,11 +100,6 @@
       }
     </style>
 
-    <!-- Navbar -->
-
-    <!-- Navbar -->
-
-    <!-- Background image -->
     <div id="father">
       <div id="login" class="bg-image shadow-2-strong" style="background-color: rgba(0, 0, 0, 0.8);">
         <div id="bigC1" class="">

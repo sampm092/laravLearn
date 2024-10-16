@@ -10,53 +10,12 @@
             font-family: sans-serif;
         }
 
-        header {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(background.PNG);
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-        }
-
-        ul {
-            float: right;
-            list-style-type: none;
-            margin-top: 25px;
-        }
-
-        ul li {
-            display: inline-block;
-        }
-
-        ul li a {
-            text-decoration: none;
-            color: #fff;
-            padding: 5px 20px;
-            border: 1px solid;
-            transition: 0.6s;
-            margin: 10px;
-
-        }
-
-        ul li a:hover {
-            background-color: #fff;
-            color: #000;
-        }
-
-        ul li.active a {
-            background-color: #fff;
-            color: #000;
-        }
-
         .logo img {
             float: left;
             width: 180px;
             height: auto;
         }
 
-        .main {
-            max-width: 1200px;
-            margin: auto;
-        }
 
         .title {
             position: absolute;
@@ -78,72 +37,31 @@
             left: 35%;
             transform: translate(-50%; -50%);
         }
-
-        .btn1 {
-            border: 1px solid #fff;
-            padding: 10px 30px;
-            color: #fff;
-            text-decoration: none;
-            transition: 0.6s ease;
-            border-radius: 5px;
-            margin: 10px;
-        }
-
-        .btn1:hover {
-            background-color: #fff;
-            color: #000
-        }
-
-        .btn2 {
-            border: 1px solid #fff;
-            padding: 10px 50px;
-            color: #fff;
-            text-decoration: none;
-            transition: 0.6s ease;
-            border-radius: 5px;
-        }
-
-        .btn2:hover {
-            background-color: #fff;
-            color: #000;
-
-        }
     </style>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFFFF;">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item" style="width:160px;">
-                    <a class="nav-link" href="actions.php" style="width:160px;"><i class="fas fa-book"></i> Daftar
-                        Kategori</a>
-                </li>
-                </form>
-            </ul>
-
+    <header id="header" class="p-3 text-white shadows" style="background-color: #130c0b;">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="{{ redirect('dashboard')}}"
+                            class="navbar-brand fw-light text-warning">{{ config('app.name') }}</a></li>
+                    <li><a href="#header" class="nav-link px-2 text-warning">Home</a></li>
+                    <li><a href="#" class="nav-link px-2 text-warning">About</a></li>
+                </ul>
+                <div class="text-end ms-auto" style="margin-left: auto">
+                    <a id="hover2" type="button" href="#"
+                        class="btn btn-outline-warning btn-dark me-2">Logout</a>
+                </div>
+            </div>
         </div>
-    </nav>
-    <div>
-        <center>
-            <h1> Mediums </h1>
-        </center>
-    </div>
+    </header>
+
     <div class="row" style="margin-left: 50px;">
         @foreach ($books as $book)
-
             <div>
                 <div class="card"
-                    style="width: 350px; height: 425px; background-color:#EFB509; margin : 30px 30px 30px -26px;border-style: solid;border-width: 5px;border-color: black;">
-                    <a href="{{ route('view') }}">
-                        <img src="{{ Storage::url('public/books/' . $book->cover) }}" width="342px" height="415px" alt="">
+                    style="width: 250px; height: 325px; background-color:#EFB509; margin : 30px 15px;border-style: solid;border-width: 5px;border-color: black;margin-right-auto">
+                    <a href="{{ route('detailed') }}">
+                        <img src="{{ Storage::url('public/books/' . $book->cover) }}"  style="width: -webkit-fill-available; height:315px" alt="">
                         <div class="judul_art">
                             <p style="position: absolute;left: 1px; bottom: -15px; color: white; font-size: 20px;}">
                                 <b>{{ $book->title }}</b>

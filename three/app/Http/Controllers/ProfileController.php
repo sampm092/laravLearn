@@ -133,8 +133,8 @@ class ProfileController extends Controller
         }
     }
 
-    public function view(Book $book)
+    public function detailed()
     {
-        return view('view', compact('book'));
+        return view('detailed');
     }
 }
