@@ -1,6 +1,6 @@
 @extends('layout.html')
 
-<body style="background-color:#FFFFFF;">
+<body style="background-color:#130c0b;">
     <style>
         @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
 
@@ -10,32 +10,21 @@
             font-family: sans-serif;
         }
 
-        .logo img {
-            float: left;
-            width: 180px;
-            height: auto;
+        .border-curved {
+            border-radius: 20px;
         }
 
-
-        .title {
-            position: absolute;
-            top: 40%;
-            left: 30%;
-            transform: translate(-50%; -50%);
+        .card {
+            width: 250px;
+            height: 325px;
+            margin: 30px 15px;
         }
 
-        .title h1 {
-            font-family: sans-serif;
-            color: #fff;
-            font-size: 80px;
-
-        }
-
-        .button {
-            position: absolute;
-            top: 55%;
-            left: 35%;
-            transform: translate(-50%; -50%);
+        .book-cover {
+            width: -webkit-fill-available;
+            height: -webkit-fill-available;
+            object-fit: fill;
+            border-radius: 20px;
         }
     </style>
     <header id="header" class="p-3 text-white shadows" style="background-color: #130c0b;">
@@ -48,26 +37,26 @@
                     <li><a href="#" class="nav-link px-2 text-warning">About</a></li>
                 </ul>
                 <div class="text-end ms-auto" style="margin-left: auto">
-                    <a id="hover2" type="button" href="#"
-                        class="btn btn-outline-warning btn-dark me-2">Logout</a>
+                    <a id="hover2" type="button" href="#" class="btn btn-outline-warning btn-dark me-2">Logout</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="row" style="margin-left: 50px;">
+    <div class="row" style="margin: auto;">
         @foreach ($books as $book)
             <div>
-                <div class="card"
-                    style="width: 250px; height: 325px; background-color:#EFB509; margin : 30px 15px;border-style: solid;border-width: 5px;border-color: black;margin-right-auto">
-                    <a href="{{ route('detailed', $book->id) }}">
-                        <img src="{{ Storage::url('public/books/' . $book->cover) }}"  style="width: -webkit-fill-available; height:315px" alt="">
-                        <div class="judul_art">
-                            <p style="position: absolute;left: 1px; bottom: -15px; color: white; font-size: 20px;}">
-                                <b>{{ $book->title }}</b>
-                            <p>
+                <div class="card" style="background-color:transparent">
+                    <a class="border-curved" href="{{ route('detailed', $book->id) }}">
+                        <div class="border-curved" style="width:250px; height: 325px;}">
+                            <img class="book-cover" src="{{ Storage::url('public/books/' . $book->cover) }}" alt="">
+                            <div class="judul_art">
+                                <p style="position: absolute;left: 1px; bottom: -15px; color: white; font-size: 20px;}">
+                                    <b>{{ $book->title }}</b>
+                                <p>
+                            </div>
+                            </img>
                         </div>
-                        </img>
                     </a>
 
 

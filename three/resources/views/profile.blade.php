@@ -31,9 +31,9 @@ BOOK LIST -->
                         <tr>
                             <td class="text-center">
                                 <img src=" {{ Storage::url('public/books/' . $book->cover) }} " class="rounded"
-                                    style="width: 150px">
+                                    style="height: 150px; max-width: 185px">
                             </td>
-                            <td>{{ $book->title }}</td>
+                            <td style="max-width:200px">{{ $book->title }}</td>
                             <td>{{ $book->author }}</td>
                             <td>{{ $book->created_at }}</td>
                             <td class="text-center">
