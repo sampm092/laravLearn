@@ -1,16 +1,12 @@
 <!-- DASHBOARD->PROFILE
 BOOK LIST -->
 <!-- extends menggunakan layout\header  -->
-@extends('layout.header')
+@extends('layout.html')
 
 @section('content')
+<body class="bg-light m-4">
+<h1>{{ $books->title }}</h1>
+<p>{{ $books->desc}}</p>
 
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card-body bg-light">
-            
-        </div>
-    </div>
-</div>
 @endsection

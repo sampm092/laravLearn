@@ -60,7 +60,7 @@
             <div>
                 <div class="card"
                     style="width: 250px; height: 325px; background-color:#EFB509; margin : 30px 15px;border-style: solid;border-width: 5px;border-color: black;margin-right-auto">
-                    <a href="{{ route('detailed') }}">
+                    <a href="{{ route('detailed', $book->id) }}">
                         <img src="{{ Storage::url('public/books/' . $book->cover) }}"  style="width: -webkit-fill-available; height:315px" alt="">
                         <div class="judul_art">
                             <p style="position: absolute;left: 1px; bottom: -15px; color: white; font-size: 20px;}">

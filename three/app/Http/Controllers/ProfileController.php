@@ -133,8 +133,12 @@ class ProfileController extends Controller
         }
     }
 
-    public function detailed()
+    public function detailed(Book $book)
     {
-        return view('detailed');
+        $book = Book::findOrFail($book->id);
+        
+        return view('detailed', [
+            'books' => $book
+        ]);
     }
 }
