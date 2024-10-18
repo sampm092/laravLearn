@@ -13,4 +13,5 @@ class IndexController extends Controller
     public function login() {
         return view('login');
     } //Function index yg ada pada kelas indexCOntroller yang mengembalikan file welcome.blade.php yang ada di resources/views
+
 }

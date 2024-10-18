@@ -136,6 +136,12 @@ class ProfileController extends Controller
     public function detailed(Book $book)
     {
         $book = Book::findOrFail($book->id);
+        $books = Book::orderBy('created_at', 'DESC');
+
+        if (request()->has('search')) {
+            $books = $books->where('title', 'LIKE', '%' . request()->get('search', '') . '%')
+                ->orWhere('author', 'LIKE', '%' . request()->get('search', '') . '%');
+        }
         
         return view('detailed', [
             'books' => $book

@@ -155,7 +155,7 @@
 
                 <div class="col-sm-6 col-md-8">
 
-                  <form class="bg-white rounded shadow-5-strong p-5" action="{{ route('dashboard') }}" >
+                  <form class="bg-white rounded shadow-5-strong p-5" action="{{ route('bookView') }}" >
 
                     <!-- Email input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
