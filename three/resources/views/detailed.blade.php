@@ -5,85 +5,49 @@ BOOK LIST -->
 
 @section('content')
 
-<body class="bg-light">
+<body style="background-color:#d9d9d9">
+    <style>
+        hr {
+            height: 2px;
+            background-color: black;
+            border-color: black;
+        }
+    </style>
     <main style="height:100vh; display:flex">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
-            style="width: 280px; height: -webkit-fill-available;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-                <span class="fs-4">Sidebar</span>
-            </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="#" class="nav-link active" aria-current="page">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#home"></use>
-                        </svg>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#speedometer2"></use>
-                        </svg>
-                        Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#table"></use>
-                        </svg>
-                        Orders
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#grid"></use>
-                        </svg>
-                        Products
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#people-circle"></use>
-                        </svg>
-                        Customers
-                    </a>
-                </li>
-            </ul>
-            <hr>
-            <div class="dropdown">
-                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>mdo</strong>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white"
+            style="width: 280px; height: -webkit-fill-available;background-color: #204f20">
+            <div class="justify-content-center" style="margin: 40px auto">
+                <div class="fs-4" style="text-align:center"><img class="book-cover shadow"
+                        src="{{ Storage::url('public/books/' . $books->cover) }}" alt="" style="width:150px; "></div>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item mt-5">
+                        <b>{{ $books->title }}</b>
+                        <hr>
                     </li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    <li class="nav-item">
+                        by {{ $books->author }}
+                        <hr>
+                    </li>
+                    <li class="nav-item">
+                        <i>{{ $books->updated_at}}</i>
+                        <hr>
+                    </li>
                 </ul>
             </div>
+
         </div>
-        <div>
-        <h1>{{ $books->title }}</h1>
-    </div>
-    <div>
-        <p>{{ $books->desc}}</p>
-    </div>
+        <div style="margin: 18px 55px">
+            <a href="{{ url()->previous() }}" class="btn">
+                < Back</a>
+                    <div>
+                        <h3>Description :</h3>
+                    </div>
+                    <div>
+                        <p>{{ $books->desc}}</p>
+                    </div>
+        </div>
 
     </main>
 
-    
+
     @endsection

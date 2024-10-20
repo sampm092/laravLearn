@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 
-<body
-    style="background-image: url(https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+<body style="background-color: #123456">
 
     <div class="container mt-5" style="padding: inherit;border-radius: 5px;">
         <!-- include memanggil isi file layout\navbar  -->
@@ -26,6 +25,10 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     </div>
 
+
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+        <div> footer</div>
+    </footer>
 
 </body>
 
