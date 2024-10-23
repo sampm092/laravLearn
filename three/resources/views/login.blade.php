@@ -98,6 +98,10 @@
         background-color: #040705db;
         color: white;
       }
+
+      .form-border{
+        border: .5px solid #130c0bdb;
+      }
     </style>
 
     <div id="father">
@@ -155,17 +159,17 @@
 
                 <div class="col-sm-6 col-md-8">
 
-                  <form class="bg-white rounded shadow-5-strong p-5" action="{{ route('bookView') }}" >
+                  <form class="bg-white rounded shadow-5-strong p-5" action="{{ route('bookView') }}">
 
                     <!-- Email input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="email" id="form1Example1" class="form-control" />
+                      <input type="email" id="form1Example1" class="form-control form-border" />
                       <label class="form-label" for="form1Example1">Username</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="password" id="form1Example2" class="form-control" />
+                      <input type="password" id="form1Example2" class="form-control form-border" />
                       <label class="form-label" for="form1Example2">Password</label>
                     </div>
 
@@ -254,31 +258,21 @@
                   <form class="bg-white rounded shadow-5-strong p-5">
                     <!-- Email input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="email" id="form1Example1" class="form-control" />
+                      <input type="text" id="form1Example1" class="form-control form-border" />
                       <label class="form-label" for="form1Example1">Username</label>
+                    </div>
+
+                    <!-- email input  -->
+
+                    <div class="form-outline mb-4" data-mdb-input-init>
+                      <input type="email" id="form1Example2" class="form-control form-border" />
+                      <label class="form-label" for="form1Example2">E-mail</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="password" id="form1Example2" class="form-control" />
+                      <input type="password" id="form1Example2" class="form-control form-border" />
                       <label class="form-label" for="form1Example2">Password</label>
-                    </div>
-
-                    <!-- 2 column grid layout for inline styling -->
-                    <div class="row mb-4">
-                      <div class="col d-flex justify-content-center">
-                        <!-- Checkbox -->
-                        <div class="form-check">
-                          <label class="form-check-label" for="form1Example3">
-
-                          </label>
-                        </div>
-                      </div>
-
-                      <div class="col text-center">
-                        <!-- Simple link -->
-                        <a href="#!">Forgot password?</a>
-                      </div>
                     </div>
 
                     <!-- Submit button -->
