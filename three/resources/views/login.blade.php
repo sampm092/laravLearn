@@ -29,14 +29,14 @@
       }
 
       .cover {
-        width: 50%;
+        width: 100%;
         height: 108vh;
         /* Semi-transparent cover */
         position: absolute;
         top: 0;
         left: 50%;
         /* Hidden by default */
-        transition: top 1s ease, left 1s ease;
+        transition: top 1s ease, left 0.5s ease;
 
       }
 
@@ -73,13 +73,16 @@
         }
 
       }
-
-
-      /* Height for devices larger than 576px */
-
-
       .navbar .nav-link {
         color: #fff !important;
+      }
+
+      .main-Color {
+        color: #8f6d06;
+      }
+
+      .main-Color:hover {
+        color: #130c0bdb;
       }
 
       .btn-primary {
@@ -99,7 +102,7 @@
         color: white;
       }
 
-      .form-border{
+      .form-border {
         border: .5px solid #130c0bdb;
       }
     </style>
@@ -186,7 +189,7 @@
 
                       <div class="col text-center">
                         <!-- Simple link -->
-                        <a href="#!">Forgot password?</a>
+                        <a href="#!" class="main-Color">Forgot password?</a>
                       </div>
                     </div>
 
@@ -194,7 +197,7 @@
                     <button type="submit" class="btn btn-primary btn-block" data-mdb-ripple-init>Sign in</button>
 
                     <div class="col text-center mt-3">
-                      <a href="javascript:moveCover('login')">No Account?</a>
+                      <a href="javascript:moveCover('login')" class="main-Color">No Account?</a>
                     </div>
                 </div>
                 </form>
@@ -279,7 +282,7 @@
                     <button type="submit" class="btn btn-primary btn-block" data-mdb-ripple-init>Register</button>
 
                     <div class="col text-center mt-3">
-                      <a href="javascript:moveCover('regist')">Already have an account?</a>
+                      <a href="javascript:moveCover('regist')" class="main-Color">Already have an account?</a>
                     </div>
                 </div>
                 </form>
@@ -288,7 +291,9 @@
           </div>
         </div>
       </div>
-      <div id="cover" class="cover pict">
+
+      <!-- Cover -->
+      <div id="cover" class="cover pict" style="border-left: 1px #ffc107 solid; border-right: 1px #ffc107 solid">
 
       </div>
     </div>
@@ -345,31 +350,31 @@
   <script type="text/javascript" src="js/mdb.umd.min.js"></script>
   <script>
 
-    function toRegist() {
-      var bigC1 = document.getElementById("bigC1");
-      var login = document.getElementById("login");
-      var bigC2 = document.getElementById("bigC2");
-      var regist = document.getElementById("regist");
+    // function toRegist() {}
+    //   var bigC1 = document.getElementById("bigC1");
+    //   var login = document.getElementById("login");
+    //   var bigC2 = document.getElementById("bigC2");
+    //   var regist = document.getElementById("regist");
 
-      bigC1.classList.add("none");
-      login.classList.add("pict");
-      bigC2.classList.remove("none");
-      regist.classList.remove("pict");
+    //   bigC1.classList.add("none");
+    //   login.classList.add("pict");
+    //   bigC2.classList.remove("none");
+    //   regist.classList.remove("pict");
 
-    }
+    // }
 
-    function toLogin() {
-      var bigC1 = document.getElementById("bigC1");
-      var login = document.getElementById("login");
-      var bigC2 = document.getElementById("bigC2");
-      var regist = document.getElementById("regist");
+    // function toLogin() {
+    //   var bigC1 = document.getElementById("bigC1");
+    //   var login = document.getElementById("login");
+    //   var bigC2 = document.getElementById("bigC2");
+    //   var regist = document.getElementById("regist");
 
-      bigC1.classList.remove("none");
-      login.classList.remove("pict");
-      bigC2.classList.add("none");
-      regist.classList.add("pict");
+    //   bigC1.classList.remove("none");
+    //   login.classList.remove("pict");
+    //   bigC2.classList.add("none");
+    //   regist.classList.add("pict");
 
-    }
+    // }
 
     function moveCover(targetDivId) {
       // Get the target content div
@@ -380,7 +385,12 @@
 
       // Move the cover div smoothly to the position of the target div
       cover.style.top = `${targetDiv.offsetTop}px`;
-      cover.style.left = `${targetDiv.offsetLeft}px`;
+      if (targetDivId == 'login') {
+        cover.style.left = `-50%`;
+      }else{
+        cover.style.left = `${targetDiv.offsetLeft}px`;
+      }
+      
     }
 
     // function swapDivs() {
