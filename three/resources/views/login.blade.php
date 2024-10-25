@@ -112,7 +112,7 @@
       }
     </style>
 
-<div id="father">
+    <div id="father">
       @include('layout.notif')
       <div id="login" class="bg-image shadow-2-strong" style="background-color: rgba(0, 0, 0, 0.8);">
         <div id="bigC1" class="">
@@ -281,40 +281,54 @@
 
                     <!-- email input  -->
                     <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="email" name="email" class="form-control form-border" />
-                      <label class="form-label" for="form1Example2">E-mail</label>
-                    </div>
+                      <input type="email" name="email"
+                        class="form-control form-border @error('email') is-invalid @enderror" />
+                      <label class="form-label">E-mail</label>
+                      @error('email')
+              <div class="alert alert-danger mt-2">
+              {{ $message }}
+              </div>
+            @enderror
 
-                    <!-- Password input -->
-                    <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="password" name="password" class="form-control form-border" />
-                      <label class="form-label" for="form1Example2">Password</label>
-                    </div>
-
-                    <!-- Submit button -->
-                    <div style="display:flex">
-                      <input type="submit" name="submit" class="btn btn-primary btn-block" data-mdb-ripple-init
-                        value="Register">
-                      <div style="width: 15%; margin-left: 5px" class="btn btn-primary">
-                        <p style="color: white;position: absolute;font-size: 20px;margin: inherit;">+</p>
-                        <input type="file" class="btn" name="picture" style="opacity: 0%" alt="Add picture" />
-                      </div>
-                    </div>
-                    <div class="col text-center mt-3">
-                      <a href="javascript:moveCover('regist')" class="main-Color">Already have an account?</a>
-                    </div>
                 </div>
-                </form>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4" data-mdb-input-init>
+                  <input type="password" name="password"
+                    class="form-control form-border @error('username') is-invalid @enderror" />
+                  <label class="form-label">Password</label>
+                  @error('password')
+            <div class="alert alert-danger mt-2">
+            {{ $message }}
+            </div>
+          @enderror
+
+              </div>
+
+              <!-- Submit button -->
+              <div style="display:flex">
+                <input type="submit" name="submit" class="btn btn-primary btn-block" data-mdb-ripple-init
+                  value="Register">
+                <div style="width: 15%; margin-left: 5px" class="btn btn-primary">
+                  <p style="color: white;position: absolute;font-size: 20px;margin: inherit;">+</p>
+                  <input type="file" accept=".png, .jpg, .jpeg" class="btn" name="picture" style="opacity: 0%" />
+                </div>
+              </div>
+              <div class="col text-center mt-3">
+                <a href="javascript:moveCover('regist')" class="main-Color">Already have an account?</a>
               </div>
             </div>
+            </form>
           </div>
         </div>
       </div>
+    </div>
+    </div>
 
-      <!-- Cover -->
-      <div id="cover" class="cover pict" style="border-left: 1px #ffc107 solid; border-right: 1px #ffc107 solid">
+    <!-- Cover -->
+    <div id="cover" class="cover pict" style="border-left: 1px #ffc107 solid; border-right: 1px #ffc107 solid">
 
-      </div>
+    </div>
     </div>
 
     </div>

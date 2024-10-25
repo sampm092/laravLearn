@@ -18,7 +18,7 @@ class IndexController extends Controller
     public function registore(Request $request) {
         $this->validate($request, [
             'picture' => 'image|mimes:png,jpg,jpeg',
-            'username' => 'required',
+            'username' => 'required|min:5|max:30',
             'email' => 'required|email|unique:users,email',
             'password' => 'required'
         ]);
