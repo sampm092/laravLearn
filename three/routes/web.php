@@ -21,6 +21,7 @@ Route::get('/dashboard', [ProfileController::class,'bookView'])->name('bookView'
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile'); //name digunakan pada saat memanggil rute di html
 Route::get('/create', [ProfileController::class, 'createV'])->name('create');
 Route::post('/profile',[ProfileController::class, 'store'])->name('store'); 
+Route::post('/login',[IndexController::class, 'registore'])->name('registore'); 
 Route::delete('/profile/{id}',[ProfileController::class, 'destroy'])->name('delete'); 
 Route::get('{book}/edit', [ProfileController::class, 'edit'])->name('edit');
 Route::put('{book}/', [ProfileController::class, 'update'])->name('update');

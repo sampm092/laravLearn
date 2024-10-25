@@ -73,6 +73,7 @@
         }
 
       }
+
       .navbar .nav-link {
         color: #fff !important;
       }
@@ -105,9 +106,14 @@
       .form-border {
         border: .5px solid #130c0bdb;
       }
+
+      ::-webkit-file-upload-button {
+        display: none;
+      }
     </style>
 
-    <div id="father">
+<div id="father">
+      @include('layout.notif')
       <div id="login" class="bg-image shadow-2-strong" style="background-color: rgba(0, 0, 0, 0.8);">
         <div id="bigC1" class="">
           <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;position: inherit">
@@ -258,29 +264,42 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-sm-6 col-md-8">
-                  <form class="bg-white rounded shadow-5-strong p-5">
+                  <form class="bg-white rounded shadow-5-strong p-5" method="POST" action="{{ route('registore')}}"
+                    enctype="multipart/form-data">
+                    @csrf
                     <!-- Email input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="text" id="form1Example1" class="form-control form-border" />
-                      <label class="form-label" for="form1Example1">Username</label>
+                      <input type="text" name="username"
+                        class="form-control form-border @error('username') is-invalid @enderror" />
+                      <label class="form-label">Username</label>
+                      @error('username')
+              <div class="alert alert-danger mt-2">
+              {{ $message }}
+              </div>
+            @enderror
                     </div>
 
                     <!-- email input  -->
-
                     <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="email" id="form1Example2" class="form-control form-border" />
+                      <input type="email" name="email" class="form-control form-border" />
                       <label class="form-label" for="form1Example2">E-mail</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="password" id="form1Example2" class="form-control form-border" />
+                      <input type="password" name="password" class="form-control form-border" />
                       <label class="form-label" for="form1Example2">Password</label>
                     </div>
 
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block" data-mdb-ripple-init>Register</button>
-
+                    <div style="display:flex">
+                      <input type="submit" name="submit" class="btn btn-primary btn-block" data-mdb-ripple-init
+                        value="Register">
+                      <div style="width: 15%; margin-left: 5px" class="btn btn-primary">
+                        <p style="color: white;position: absolute;font-size: 20px;margin: inherit;">+</p>
+                        <input type="file" class="btn" name="picture" style="opacity: 0%" alt="Add picture" />
+                      </div>
+                    </div>
                     <div class="col text-center mt-3">
                       <a href="javascript:moveCover('regist')" class="main-Color">Already have an account?</a>
                     </div>
@@ -387,10 +406,10 @@
       cover.style.top = `${targetDiv.offsetTop}px`;
       if (targetDivId == 'login') {
         cover.style.left = `-50%`;
-      }else{
+      } else {
         cover.style.left = `${targetDiv.offsetLeft}px`;
       }
-      
+
     }
 
     // function swapDivs() {
