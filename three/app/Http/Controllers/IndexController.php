@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class IndexController extends Controller
 {
@@ -40,7 +41,7 @@ class IndexController extends Controller
             'picture' => $default,
             'username' => $request->username,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => Hash::make($request->password)
         ]);
         $user->save();
 
@@ -56,17 +57,18 @@ class IndexController extends Controller
     {
         $validated = request()->validate(
             [
-                'username' => 'required|max:30',
-                'password' => 'required'
+                'username' => 'required|min:5|max:30',
+                'password' => 'required' 
             ]
         );
 
-        if (auth()->attempt($validated)) {
+        if (auth()->attempt($validated)) { //auth() harus untuk password yg sudah di-hash
             request()->session()->regenerate();
             return redirect()->route('bookView')->with('success', 'success');
         }
         return redirect()->route('login')->withErrors([
-            'username' => "Wrong username or password"
+            'username' => "Wrong username",
+            'password' => "Wrong password"
         ]);
 
     }

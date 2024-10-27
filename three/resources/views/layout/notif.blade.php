@@ -1,7 +1,7 @@
 @if (session()->has('success'))
 
 <style>
-.alert {
+.alertMe {
   padding: 20px;
   background-color: #f44336;
   color: white;
@@ -9,9 +9,9 @@
   transition: opacity 0.6s;
 }
 
-.alert.success {background-color: #04AA6D;}
-.alert.info {background-color: #2196F3;}
-.alert.warning {background-color: #ff9800;}
+.alertMe.success {background-color: #04AA6D;}
+.alertMe.info {background-color: #2196F3;}
+.alertMe.warning {background-color: #ff9800;}
 
 .closebtn {
   margin-left: 15px;
@@ -29,7 +29,7 @@
 }
 </style>
 
-<div class="alert alert-success" role="alert">
+<div class="alertMe alert-success" role="alert">
     <span class="closebtn">&times;</span>  
     {{ session('success' )}}
 </div>
