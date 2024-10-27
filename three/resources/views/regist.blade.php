@@ -34,7 +34,7 @@
         /* Semi-transparent cover */
         position: absolute;
         top: 0;
-        left: 50%;
+        left: -50%;
         /* Hidden by default */
         transition: top 1s ease, left 0.5s ease;
 
@@ -112,11 +112,13 @@
       }
     </style>
 
-    @include('layout.notif')
+@include('layout.notif')
     <div id="father">
       <div id="login" class="bg-image shadow-2-strong" style="background-color: rgba(0, 0, 0, 0.8);">
-        <div id="bigC1" class="">
-          <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;position: inherit">
+        </div>
+      <div id="regist" class="bg-image shadow-2-strong" style="background-color: rgba(0, 0, 0, 0.8);">
+        <div id="bigC2" class="">
+          <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000; position: inherit">
             <div class="container-fluid">
               <!-- Navbar brand -->
               <a class="navbar-brand nav-link" target="_blank" href="#">
@@ -166,44 +168,58 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-sm-6 col-md-8">
-                  <form class="bg-white rounded shadow-5-strong p-5" method="POST" action="{{ route('authenticate') }}"
+                  <form class="bg-white rounded shadow-5-strong p-5" method="POST" action="{{ route('registore')}}"
                     enctype="multipart/form-data">
                     @csrf
-
+                    <!-- Email input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="text" name="username" class="form-control form-border" />
+                      <input type="text" name="username"
+                        class="form-control form-border @error('username') is-invalid @enderror" />
                       <label class="form-label">Username</label>
-                              @error('username')
-                      <div class="alert alert-danger mt-2">
-                      {{ $message }}
-                      </div>
-                    @enderror
+                      @error('username')
+              <div class="alert alert-danger mt-2">
+              {{ $message }}
+              </div>
+            @enderror
+                    </div>
+
+                    <!-- email input  -->
+                    <div class="form-outline mb-4" data-mdb-input-init>
+                      <input type="email" name="email"
+                        class="form-control form-border @error('email') is-invalid @enderror" />
+                      <label class="form-label">E-mail</label>
+                      @error('email')
+              <div class="alert alert-danger mt-2">
+              {{ $message }}
+              </div>
+            @enderror
+
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4" data-mdb-input-init>
-                      <input type="password" name="password" class="form-control form-border" />
+                      <input type="password" name="password"
+                        class="form-control form-border @error('password') is-invalid @enderror" />
                       <label class="form-label">Password</label>
                       @error('password')
-                      <div class="alert alert-danger mt-2">
-                      {{ $message }}
-                      </div>
-                      @enderror
+              <div class="alert alert-danger mt-2">
+              {{ $message }}
+              </div>
+            @enderror
 
-                    </div>
-                    <!-- 2 column grid layout for inline styling -->
-                    <div class="row mb-4">
-                      <div class="col text-center">
-                        <!-- Simple link -->
-                        <a href="#!" class="main-Color">Forgot password?</a>
-                      </div>
                     </div>
 
                     <!-- Submit button -->
-                    <input type="submit" name="submit" class="btn btn-primary btn-block" data-mdb-ripple-init
-                      value="Sign in">
+                    <div style="display:flex">
+                      <input type="submit" name="submit" class="btn btn-primary btn-block" data-mdb-ripple-init
+                        value="Register">
+                      <div style="width: 15%; margin-left: 5px" class="btn btn-primary">
+                        <p style="color: white;position: absolute;font-size: 20px;margin: inherit;">+</p>
+                        <input type="file" accept=".png, .jpg, .jpeg" class="btn" name="picture" style="opacity: 0%" />
+                      </div>
+                    </div>
                     <div class="col text-center mt-3">
-                      <a href="{{route('regist')}}" class="main-Color">No Account?</a>
+                      <a href="{{route('login')}}" class="main-Color">Already have an account?</a>
                     </div>
                 </div>
                 </form>
@@ -211,8 +227,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div id="regist" class="bg-image shadow-2-strong" style="background-color: rgba(0, 0, 0, 0.8);">
       </div>
 
       <!-- Cover -->

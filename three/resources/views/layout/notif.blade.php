@@ -7,7 +7,6 @@
   color: white;
   opacity: 1;
   transition: opacity 0.6s;
-  margin-bottom: 15px;
 }
 
 .alert.success {background-color: #04AA6D;}
