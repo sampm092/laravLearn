@@ -67,11 +67,11 @@
                     <li><a href="#" class="nav-link px-2 text-warning">About</a></li>
                 </ul>
                 <div class="text-end ms-auto" style="margin-left: auto">
-                    <a id="hover2" type="button" href="#" class="btn btn-outline-warning btn-dark me-2">Logout</a>
-                    <a type="button" href="{{route('profile')}}" class="alt-btn btn-outline-warning btn-dark me-2">
-                        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2F1000logos.net%2Faaa-logo%2F&psig=AOvVaw22EEUC9B2t3oOUW-2uNQ_r&ust=1729342765037000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLjqwvv9l4kDFQAAAAAdAAAAABAE'"
+                    <a type="button" href="{{route('profile')}}" class="alt-btn btn-outline-warning btn-dark mr-2">
+                        <img src="{{Storage::url('public/profile/'.Auth::user()->picture)}}"
                             alt="" style="width: 60px;height:60px;padding:0">
                     </a>
+                    <a id="hover2" type="button" href="#" class="btn btn-outline-warning btn-dark me-2">Logout</a>
                 </div>
             </div>
         </div>
