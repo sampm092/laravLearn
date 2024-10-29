@@ -21,6 +21,7 @@
 
   <!-- BUAT LOGIN DAN REGISTER DALAM 1 PAGE TETAPI TUTUP SALAH SATUNYA DENGAN SCRIPT, JADI SLIDING -->
   <header>
+    @extends('layout.scrollbar')
     <style>
       #father {
         display: flex;
@@ -29,7 +30,7 @@
       }
 
       .cover {
-        width: 100%;
+        width: 50%;
         height: 108vh;
         /* Semi-transparent cover */
         position: absolute;
@@ -173,11 +174,11 @@
                     <div class="form-outline mb-4" data-mdb-input-init>
                       <input type="text" name="username" class="form-control form-border" />
                       <label class="form-label">Username</label>
-                              @error('username')
-                      <div class="alert alert-danger mt-2">
-                      {{ $message }}
-                      </div>
-                    @enderror
+                      @error('username')
+              <div class="alert alert-danger mt-2">
+              {{ $message }}
+              </div>
+            @enderror
                     </div>
 
                     <!-- Password input -->
@@ -185,10 +186,10 @@
                       <input type="password" name="password" class="form-control form-border" />
                       <label class="form-label">Password</label>
                       @error('password')
-                      <div class="alert alert-danger mt-2">
-                      {{ $message }}
-                      </div>
-                      @enderror
+              <div class="alert alert-danger mt-2">
+              {{ $message }}
+              </div>
+            @enderror
 
                     </div>
                     <!-- 2 column grid layout for inline styling -->
@@ -227,16 +228,7 @@
   <!--Main Navigation-->
 
   <!--Footer-->
-  <footer class="py-3 shadow">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-            </ul>
-            <p class="text-center text-body-secondary" >© 2024 Samuel P.M. </p>
-        </footer>
+  @extends('layout.footer')
   <!--Footer-->
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.umd.min.js"></script>

@@ -10,6 +10,21 @@
 </head>
 
 <body style="background-color: #123456">
+<style>
+    html::-webkit-scrollbar {
+        border-left: 1px solid black;
+    }
+
+    html::-webkit-scrollbar-track {
+        background-color: #ffc107;
+    }
+
+    html::-webkit-scrollbar-thumb {
+        border: 3px solid #212529;
+        background-color: #130c0b;
+        border-radius: 1px;
+    }
+</style>
 
     <div class="container mt-5" style="padding: inherit;border-radius: 5px;">
         <!-- include memanggil isi file layout\navbar  -->

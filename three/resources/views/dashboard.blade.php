@@ -69,14 +69,18 @@
                 <div class="text-end ms-auto" style="margin-left: auto">
                     <a type="button" href="{{route('profile')}}" class="alt-btn btn-outline-warning btn-dark mr-2">
                         <img src="{{Storage::url('public/profile/'.Auth::user()->picture)}}"
-                            alt="" style="width: 60px;height:60px;padding:0">
+                            alt="" style="width: 35px;height:35px;padding:0">
                     </a>
-                    <a id="hover2" type="button" href="#" class="btn btn-outline-warning btn-dark me-2">Logout</a>
+                    <a type="button" href="{{route('profile')}}" class="our-orange">
+                        {{Auth::user()->username}}
+                    </a>
+                    <!-- <a id="hover2" type="button" href="#" class="btn btn-outline-warning btn-dark me-2">Logout</a> -->
                 </div>
             </div>
         </div>
     </header>
     <div style="margin: 40px">
+        <h1 class="ml-4 mb-3">Welcome, <b class="our-orange">{{Auth::user()->username}}</b></h1>
         <form action="{{ route('bookView') }}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="GET">
             <input name="search" type="search" class="form-control form-control-dark" placeholder="Search..."
                 aria-label="Search">

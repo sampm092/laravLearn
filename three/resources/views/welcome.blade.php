@@ -12,24 +12,29 @@
         color: #212529;
         background-color: #ffc107;
         border-color: #ffc107;
+        box-shadow: 0 0 5px #ffc107;
     }
 
     #hover1:hover {
         color: #ffc107;
         border-color: #ffc107;
         background-color: transparent;
+        box-shadow: 0 0 5px #656459;
     }
 
     #hover2 {
         color: #ffc107;
         background-color: transparent;
         border-color: #ffc107;
+        box-shadow: 0 0 5px #656459;
+
     }
 
     #hover2:hover {
         color: #212529;
         background-color: #ffc107;
         border-color: #ffc107;
+        box-shadow: 0 0 5px #ffc107;
     }
 
     .shadows {
@@ -60,12 +65,12 @@
             </ul>
             <div class="text-end ms-auto" style="margin-left: auto">
                 <a id="hover2" type="button" href="{{ route('login') }}"class="btn btn-outline-warning btn-dark me-2">Login</a>
-                <a id="hover1" type="button" class=" btn me-2" href="../">Register</a>
+                <a id="hover1" type="button" href="{{ route('regist') }}" class=" btn me-2 ml-2">Register</a>
             </div>
         </div>
     </div>
 </header>
-<div class="content">
+<div class="content" style="height:82vh">
     <div class="col mt-5 col-md-12 text-center card-body" style="color: #ffc107;">
         <h4 class="">Welcome to</h4>
         <h1 class="bold display-2">MyBookList</h1>
