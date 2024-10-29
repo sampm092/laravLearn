@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, 'index'])->name('welcome'); //URL '/' pada browser mengembalikan function index pada kelas IndexController
 Route::get('/login', [IndexController::class, 'login'])->name('login');
 Route::post('/login', [IndexController::class, 'authenticate'])->name('authenticate');
+Route::post('/logout', [IndexController::class, 'logout'])->name('logout');
 Route::get('/regist', [IndexController::class, 'regist'])->name('regist');
 Route::post('/regist', [IndexController::class, 'registore'])->name('registore');
 Route::get('/dashboard', [ProfileController::class, 'bookView'])->name('bookView');

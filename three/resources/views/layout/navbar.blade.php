@@ -12,7 +12,10 @@
             </form>
 
             <div class="text-end">
-                <button type="button" class="btn btn-outline-danger btn-light me-2" href="../">Logout</button>
+                <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                <button type="submit" class="btn btn-outline-danger btn-light me-2" >Logout</button>
+                </form>
             </div>
         </div>
     </div>
