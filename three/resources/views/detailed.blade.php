@@ -12,6 +12,10 @@ BOOK LIST -->
             background-color: black;
             border-color: black;
         }
+
+        .underline:hover{
+            text-decoration: underline;
+        }
     </style>
     <main style="height:100vh; display:flex">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white"
@@ -38,7 +42,7 @@ BOOK LIST -->
         </div>
         <div style="margin: 18px 55px">
             <a href="{{ url()->previous() }}" class="btn">
-                < Back</a>
+                < <span class="underline">Back</span></a>
                     <div>
                         <h3>Description :</h3>
                     </div>
