@@ -21,9 +21,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($users as $user)
+                        
                             <tr>
-                                <td><a href="{{route('detailed',$user->id)}}">{{ $user->name }}</a></td>
+                                <td>{{ $user->name }}</td>
                                 <td>
                                     @foreach($user->books()->get() as $book)
                                         <div class="card shadow-sm mb-2">
@@ -34,7 +34,7 @@
                                     @endforeach
                                 </td>
                             </tr>
-                        @endforeach
+                       
                     </tbody>
                 </table>
             </div>

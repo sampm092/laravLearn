@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/users', [\App\Http\Controllers\PostController::class, 'index']);
-
 /**
  * @path /posts
  * @method GET
  */
-Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index']);
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('{user}/detailed', [ProfileController::class, 'detailed'])->name('detailed');
