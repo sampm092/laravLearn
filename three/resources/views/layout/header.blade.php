@@ -20,7 +20,7 @@
             font-size: 1rem;
             font-weight: 400;
             line-height: 1.5;
-            color: #495057;
+            color: #ffc107;
             background-color: transparent;
             background-clip: padding-box;
             border-radius: .25rem;

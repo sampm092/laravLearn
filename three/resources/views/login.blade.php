@@ -120,7 +120,7 @@
           <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;position: inherit">
             <div class="container-fluid">
               <!-- Navbar brand -->
-              <a class="navbar-brand nav-link" target="_blank" href="#">
+              <a class="navbar-brand nav-link" target="" href="{{route('welcome')}}">
                 <strong>MyBookList</strong>
               </a>
               <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#navbarExample01"

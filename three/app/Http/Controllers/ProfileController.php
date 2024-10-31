@@ -14,25 +14,52 @@ class ProfileController extends Controller
     {
         $userID = auth()->id();
         $user = User::with('books')->findOrFail($userID);
-        $books = $user->books()->orderBy('created_at', 'DESC')->paginate(10);
-
+        
+        $booksQuery = $user->books()->orderBy('created_at', 'DESC');
+    
+        // Apply search filters if the request has a 'search' parameter
         if (request()->has('search')) {
-            $books = $books->where('title', 'LIKE', '%' . request()->get('search', '') . '%')
-                ->orWhere('author', 'LIKE', '%' . request()->get('search', '') . '%');
+            $search = request()->get('search');
+            $booksQuery->where(function ($query) use ($search) {
+                $query->where('title', 'LIKE', '%' . $search . '%')
+                      ->orWhere('author', 'LIKE', '%' . $search . '%');
+            });
         }
+    
+        // Paginate after applying the search filters
+        $books = $booksQuery->paginate(10);
+    
         return view('profile', compact('user', 'books'));
+        // SEARCH FOR NO PAGINATION 
+        // $books = $user->books()->orderBy('created_at', 'DESC')->paginate(10);
+
+        // if (request()->has('search')) {
+        //     $books = $books->where('title', 'LIKE', '%' . request()->get('search', '') . '%')
+        //         ->orWhere('author', 'LIKE', '%' . request()->get('search', '') . '%');
+        // }
+        // return view('profile', compact('user', 'books'));
     }
 
     public function bookView()
     {
         $userID = auth()->id();
-        $user = User::with('books')->findOrFail($userID);
-        $books = $user->books()->orderBy('created_at', 'DESC')->paginate(8);
-
+        $user = User::findOrFail($userID);
+    
+        // Start building the books query with search filters
+        $booksQuery = $user->books()->orderBy('created_at', 'DESC');
+    
+        // Apply search filters if the request has a 'search' parameter
         if (request()->has('search')) {
-            $books = $books->where('title', 'LIKE', '%' . request()->get('search', '') . '%')
-                ->orWhere('author', 'LIKE', '%' . request()->get('search', '') . '%');
+            $search = request()->get('search');
+            $booksQuery->where(function ($query) use ($search) {
+                $query->where('title', 'LIKE', '%' . $search . '%')
+                      ->orWhere('author', 'LIKE', '%' . $search . '%');
+            });
         }
+    
+        // Paginate after applying the search filters
+        $books = $booksQuery->paginate(8);
+    
         return view('dashboard', compact('user', 'books'));
     }
 
