@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -24,14 +25,17 @@ class ProfileController extends Controller
 
     public function bookView()
     {
-        $books = Book::orderBy('created_at', 'DESC');
+        $userID = auth()->id();
+        $user = User::findOrFail($userID);
+        $books = Book::latest()->get();
 
         if (request()->has('search')) {
             $books = $books->where('title', 'LIKE', '%' . request()->get('search', '') . '%')
                 ->orWhere('author', 'LIKE', '%' . request()->get('search', '') . '%');
         }
         return view('dashboard', [
-            'books' => $books->paginate(10)
+            'user' => $user,
+            'books' => $books
         ]);
     }
 

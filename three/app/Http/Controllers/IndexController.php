@@ -15,7 +15,8 @@ class IndexController extends Controller
 
     public function login()
     {
-        return view('login');
+        $userID = auth()->id();
+        return view('login', compact('userID'));
     } //Function index yg ada pada kelas indexCOntroller yang mengembalikan file welcome.blade.php yang ada di resources/views
 
     public function logout(){
@@ -62,9 +63,9 @@ class IndexController extends Controller
         }
     }
 
-    public function authenticate()
+    public function authenticate(Request $request)
     {
-        $validated = request()->validate(
+        $validated = $request->validate(
             [
                 'username' => 'required|min:5|max:30',
                 'password' => 'required' 
@@ -72,8 +73,9 @@ class IndexController extends Controller
         );
 
         if (auth()->attempt($validated)) { //auth() harus untuk password yg sudah di-hash
-            request()->session()->regenerate();
-            return redirect()->route('bookView')->with('success', 'success');
+            $request->session()->regenerate();
+            $userID = auth()->id();
+            return redirect()->route('bookView', $userID)->with('success', 'success');
         }
         return redirect()->route('login')->withErrors([
             'username' => "Wrong username",

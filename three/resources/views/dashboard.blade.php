@@ -58,7 +58,7 @@
         }
     </style>
     <header id="header" class="p-3 text-white shadows bg-dark">
-        <div class="container">
+        <div class="container" >
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="{{route('welcome')}}"
@@ -79,7 +79,7 @@
             </div>
         </div>
     </header>
-    <div style="margin: 40px">
+    <div style="margin: 40px;min-height: 65vh">
         <h1 class="ml-4 mb-3">Welcome, <b class="our-orange">{{Auth::user()->username}}</b></h1>
         <form action="{{ route('bookView') }}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="GET">
             <input name="search" type="search" class="form-control form-control-dark" placeholder="Search..."
@@ -88,7 +88,7 @@
     </div>
 
     <div class="row justify-content-center" style="margin: 40px;">
-        @foreach ($books as $book)
+        @foreach($user->books as $book)
             <div>
                 <div class="alt-card " style="background-color:transparent; margin: 30px">
                     <a class="border-curved shadow" href="{{ route('detailed', $book->id) }}">
