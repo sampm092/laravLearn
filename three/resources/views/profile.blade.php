@@ -27,7 +27,7 @@ BOOK LIST -->
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($books as $book)
+                    @foreach ($user->books as $book)
                         <tr>
                             <td class="text-center">
                                 <img src=" {{ Storage::url('public/books/' . $book->cover) }} " class="rounded"
@@ -50,7 +50,6 @@ BOOK LIST -->
                     @endforeach
                 </tbody>
             </table>
-            {{ $books->links() }}
         </div>
     </div>
 </div>

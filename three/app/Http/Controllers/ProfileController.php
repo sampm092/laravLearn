@@ -12,14 +12,19 @@ class ProfileController extends Controller
 {
     public function profile()
     {
-        $books = Book::orderBy('created_at', 'DESC');
+        $userID = auth()->id();
+        $user = User::findOrFail($userID);
+        $books = Book::latest()->get();;
+        dump($userID);
 
         if (request()->has('search')) {
             $books = $books->where('title', 'LIKE', '%' . request()->get('search', '') . '%')
                 ->orWhere('author', 'LIKE', '%' . request()->get('search', '') . '%');
         }
         return view('profile', [
-            'books' => $books->paginate(5)
+            'user' => $user,
+            'books' => $books
+
         ]);
     }
 
@@ -53,6 +58,7 @@ class ProfileController extends Controller
             'desc' => 'required'
         ]);
         // upload image
+        $userID = auth()->id();
         $image = $request->file('cover');
         $image->storeAs('public/books', $image->hashName()); //randomize nama file
 
@@ -60,7 +66,8 @@ class ProfileController extends Controller
             'cover' => $image->hashName(),
             'title' => $request->title,
             'author' => $request->author,
-            'desc' => $request->desc
+            'desc' => $request->desc,
+            'user_id' => $userID    
         ]);
         $book->save();
 
