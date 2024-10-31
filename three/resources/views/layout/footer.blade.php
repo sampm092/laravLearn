@@ -6,6 +6,10 @@
     .borderb-our{
         border-bottom: 1px solid #ffc107;
     }
+
+    .bg-dark{
+        background-color: #130c0b !important;
+    }
 </style>
 
 <footer class="py-3 shadow" style="background-color:#130c0b;">

@@ -12,7 +12,7 @@ BOOK LIST -->
 
 @include('layout.notif')
 <div class="row">
-    <div class="col-md-12 mb-4">
+    <div class="col-md-12 mb-4" style="min-height:80vh">
         <div class="card-body bg-light">
             <a href="{{ route('create') }}" class="btn btn-md btn-success mb-3" style="background: cadetblue">ADD
                 BOOK</a>
