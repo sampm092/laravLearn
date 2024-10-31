@@ -79,7 +79,7 @@
             </div>
         </div>
     </header>
-    <div style="margin: 40px;min-height: 65vh">
+    <div style="margin: 40px;">
         <h1 class="ml-4 mb-3">Welcome, <b class="our-orange">{{Auth::user()->username}}</b></h1>
         <form action="{{ route('bookView') }}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="GET">
             <input name="search" type="search" class="form-control form-control-dark" placeholder="Search..."
@@ -87,8 +87,8 @@
         </form>
     </div>
 
-    <div class="row justify-content-center" style="margin: 40px;">
-        @foreach($user->books as $book)
+    <div class="row justify-content-left" style="margin: 40px;min-height: 65vh">
+        @foreach($books as $book)
             <div>
                 <div class="alt-card " style="background-color:transparent; margin: 30px">
                     <a class="border-curved shadow" href="{{ route('detailed', $book->id) }}">
@@ -103,11 +103,8 @@
                             </img>
                         </div>
                     </a>
-
-
                 </div>
             </div>
-
-
-        @endforeach
-    </div>
+            @endforeach
+        </div>
+        {{ $books->links()}}

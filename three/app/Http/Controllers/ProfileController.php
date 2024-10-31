@@ -13,35 +13,27 @@ class ProfileController extends Controller
     public function profile()
     {
         $userID = auth()->id();
-        $user = User::findOrFail($userID);
-        $books = Book::latest()->get();;
-        dump($userID);
+        $user = User::with('books')->findOrFail($userID);
+        $books = $user->books()->orderBy('created_at', 'DESC')->paginate(10);
 
         if (request()->has('search')) {
             $books = $books->where('title', 'LIKE', '%' . request()->get('search', '') . '%')
                 ->orWhere('author', 'LIKE', '%' . request()->get('search', '') . '%');
         }
-        return view('profile', [
-            'user' => $user,
-            'books' => $books
-
-        ]);
+        return view('profile', compact('user', 'books'));
     }
 
     public function bookView()
     {
         $userID = auth()->id();
-        $user = User::findOrFail($userID);
-        $books = Book::latest()->get();
+        $user = User::with('books')->findOrFail($userID);
+        $books = $user->books()->orderBy('created_at', 'DESC')->paginate(8);
 
         if (request()->has('search')) {
             $books = $books->where('title', 'LIKE', '%' . request()->get('search', '') . '%')
                 ->orWhere('author', 'LIKE', '%' . request()->get('search', '') . '%');
         }
-        return view('dashboard', [
-            'user' => $user,
-            'books' => $books
-        ]);
+        return view('dashboard', compact('user', 'books'));
     }
 
     public function createV()

@@ -64,8 +64,23 @@
                 <li><a href="#" class="nav-link px-2 text-warning">About</a></li>
             </ul>
             <div class="text-end ms-auto" style="margin-left: auto">
-                <a id="hover2" type="button" href="{{ route('login') }}"class="btn btn-outline-warning btn-dark me-2">Login</a>
-                <a id="hover1" type="button" href="{{ route('regist') }}" class=" btn me-2 ml-2">Register</a>
+                @guest
+                    <a id="hover2" type="button" href="{{ route('login') }}"
+                        class="btn btn-outline-warning btn-dark me-2">Login</a>
+                    <a id="hover1" type="button" href="{{ route('regist') }}" class=" btn me-2 ml-2">Register</a>
+                @endguest
+                @auth
+                <div class="text-end ms-auto" style="margin-left: auto">
+                    <a type="button" href="{{route('bookView')}}" class="alt-btn btn-outline-warning btn-dark mr-2">
+                        <img src="{{Storage::url('public/profile/'.Auth::user()->picture)}}"
+                            alt="" style="width: 35px;height:35px;padding:0">
+                    </a>
+                    <a type="button" href="{{route('bookView')}}" class="our-orange">
+                        {{Auth::user()->username}}
+                    </a>
+                    <!-- <a id="hover2" type="button" href="#" class="btn btn-outline-warning btn-dark me-2">Logout</a> -->
+                </div>
+                @endauth
             </div>
         </div>
     </div>
