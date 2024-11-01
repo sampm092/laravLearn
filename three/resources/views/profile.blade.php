@@ -8,16 +8,24 @@ BOOK LIST -->
     svg {
         width: 2rem;
     }
+
+    body {
+        background-color: #d9d9d9;
+    }
+
+    table {
+        border: 1px solid black !important;
+    }
 </style>
 
 @include('layout.notif')
 <div class="row">
     <div class="col-md-12 mb-4" style="min-height:80vh">
-        <div class="card-body bg-light">
-            <a href="{{ route('create') }}" class="btn btn-md btn-success mb-3" style="background: cadetblue">ADD
+        <div class="card-body">
+            <a href="{{ route('create') }}" class="btn btn-md mb-3" style="color: #fff;    background-color: #343a40 !important; ">ADD
                 BOOK</a>
-            <table class="table table-bordered">
-                <thead>
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
                     <tr>
                         <th scope="col">Book Cover</th>
                         <th scope="col">Book Title</th>
