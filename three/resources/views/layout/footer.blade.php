@@ -11,7 +11,7 @@
         background-color: #130c0b !important;
     }
 
-    i{
+    footer i{
         color:#ffc107;
     }
 </style>
@@ -39,6 +39,12 @@
                 <i class="fab fa-github"></i>
             </a>
         </li>
+        <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://www.linkedin.com/in/samuel-parlindungan-malau-b7698b25a/" rel="nofollow" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </li>
+        
     </ul>
     <p class="text-center text-body-secondary our-orange">© 2024 Samuel P.M. </p>
 </footer>
