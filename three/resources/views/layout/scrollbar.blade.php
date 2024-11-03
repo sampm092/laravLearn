@@ -12,4 +12,8 @@
         background-color: #130c0b;
         border-radius: 1px;
     }
+
+    html{
+        scroll-behavior: smooth;
+    }
 </style>
