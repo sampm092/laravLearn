@@ -68,6 +68,11 @@ class ProfileController extends Controller
         return view('create');
     }
 
+    public function about()
+    {
+        return view('about');
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [

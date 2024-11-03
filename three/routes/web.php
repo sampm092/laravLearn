@@ -21,6 +21,7 @@ Route::post('/login', [IndexController::class, 'authenticate'])->name('authentic
 Route::post('/logout', [IndexController::class, 'logout'])->name('logout');
 Route::get('/regist', [IndexController::class, 'regist'])->name('regist');
 Route::post('/regist', [IndexController::class, 'registore'])->name('registore');
+Route::get('/about', [ProfileController::class, 'about'])->name('about');
 Route::get('/dashboard', [ProfileController::class, 'bookView'])->name('bookView');
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile'); //name digunakan pada saat memanggil rute di html
 Route::get('/create', [ProfileController::class, 'createV'])->name('create'); //create book

@@ -1,6 +1,6 @@
 @extends('layout.html')
 
-<body class="background inter-font"></body>
+<body class="inter-font">
 <style>
     .inter-font {
         font-family: "Inter", "Avenir", lucida grande, tahoma, verdana, arial, sans-serif;
@@ -43,9 +43,10 @@
 
     .background {
         background:
-            linear-gradient(135deg, #1b1b1f 25%, #130c0b 25%, #130c0b 50%, #1b1b1f 50%, #1b1b1f 75%, #130c0b 75%, #130c0b 100%, #1b1b1f 100%);
-        background-size: 4rem 4rem;
-        animation: pattern 30s linear infinite;
+            linear-gradient(180deg,  #8b6a06, #1b1b1f,#1b1b1f,#1b1b1f,#8b6a06);
+        /* background-size: 8rem 25%; */
+        /* background-color: #8b6a06; */
+        animation: pattern 5s infinite alternate linear;
     }
 
     @keyframes pattern {
@@ -55,18 +56,19 @@
 
     }
 </style>
-<header class="p-3 text-white shadows" style="background-color: #130c0b;">
+<header class="p-3 text-white shadows" style="background-color: #130c0b; position: absolute; width: -webkit-fill-available;">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="{{route('welcome')}}" class="navbar-brand fw-light text-warning">{{ config('app.name') }}</a></li>
+                <li><a href="{{route('welcome')}}" class="navbar-brand fw-light text-white">{{ config('app.name') }}</a>
+                </li>
                 @guest
-                <li><a href="{{route('welcome')}}" class="nav-link px-2 text-warning">Home</a></li>
+                    <li><a href="{{route('welcome')}}" class="nav-link px-2 text-white">Home</a></li>
                 @endguest
                 @auth
-                <li><a href="{{route('bookView')}}" class="nav-link px-2 text-warning">Home</a></li>
+                    <li><a href="{{route('bookView')}}" class="nav-link px-2 text-white">Home</a></li>
                 @endauth
-                <li><a href="#" class="nav-link px-2 text-warning">About</a></li>
+                <li><a href="{{route('about')}}" class="nav-link px-2 text-white">About</a></li>
             </ul>
             <div class="text-end ms-auto" style="margin-left: auto">
                 @guest
@@ -75,26 +77,39 @@
                     <a id="hover1" type="button" href="{{ route('regist') }}" class=" btn me-2 ml-2">Register</a>
                 @endguest
                 @auth
-                <div class="text-end ms-auto" style="margin-left: auto">
-                    <a type="button" href="{{route('bookView')}}" class="alt-btn btn-outline-warning btn-dark mr-2">
-                        <img src="{{Storage::url('public/profile/'.Auth::user()->picture)}}"
-                            alt="" style="width: 35px;height:35px;padding:0">
-                    </a>
-                    <a type="button" href="{{route('bookView')}}" class="our-orange">
-                        {{Auth::user()->username}}
-                    </a>
-                    <!-- <a id="hover2" type="button" href="#" class="btn btn-outline-warning btn-dark me-2">Logout</a> -->
-                </div>
+                    <div class="text-end ms-auto" style="margin-left: auto">
+                        <a type="button" href="{{route('bookView')}}" class="alt-btn btn-outline-warning btn-dark mr-2">
+                            <img src="{{Storage::url('public/profile/' . Auth::user()->picture)}}" alt=""
+                                style="width: 35px;height:35px;padding:0">
+                        </a>
+                        <a type="button" href="{{route('bookView')}}" class="our-orange">
+                            {{Auth::user()->username}}
+                        </a>
+                        <!-- <a id="hover2" type="button" href="#" class="btn btn-outline-warning btn-dark me-2">Logout</a> -->
+                    </div>
                 @endauth
             </div>
         </div>
     </div>
 </header>
-<div class="content" style="height:82vh">
+<div id="welcome" class="content background" style="min-height:100vh; display: flex;">
+    <div class="col col-md-12 card-body"
+        style="color: #fff;width: 50%; margin: auto 4rem !important;">
+        <h4 class="" data-aos="fade-up" data-aos-duration="2000">Welcome to</h4>
+        <h1 class="bold display-2" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">MyBookList</h1>
+        <p class="lead" style="width: 90%" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">Hello</p>
+    </div>
+    <div style="width:50%" class="col col-md-12 card-body m-auto">
+        <img src="{{Storage::url('public/LOGO.png')}}" style="width: 80%;
+    transform: skewY(10deg); border-radius: 50%; " class="mt-4 shadows">
+    </div>
+</div>
+<div id="about" class="content" style="min-height:82vh">
     <div class="col mt-5 col-md-12 text-center card-body" style="color: #ffc107;">
-        <h4 class="">Welcome to</h4>
-        <h1 class="bold display-2">MyBookList</h1>
-        <p class="lead" style="width: 80%; margin: 40px auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <h4 class="" data-aos="fade-down" data-aos-duration="2000">Welcome to</h4>
+        <h1 class="bold display-2" data-aos="fade-down" data-aos-duration="2000" data-aos-delay="200">MyBookList</h1>
+        <p class="lead" style="width: 80%; margin: 40px auto" data-aos="fade-down" data-aos-duration="2000"
+            data-aos-delay="400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Phasellus rhoncus
             felis quis arcu tempus sagittis. Etiam odio quam, ultrices sit amet faucibus a, rhoncus eu turpis. Integer
             aliquet, diam id pellentesque ultrices, dolor arcu faucibus sem, at fermentum sapien augue et orci.
