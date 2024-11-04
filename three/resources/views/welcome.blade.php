@@ -43,7 +43,7 @@
 
         .background {
             background:
-                linear-gradient(180deg, #8b6a06, #1b1b1f, #1b1b1f, #1b1b1f, #8b6a06);
+                linear-gradient(180deg, #8b6a06, #130c0b, #130c0b, #130c0b, #8b6a06);
             /* background-size: 8rem 25%; */
             /* background-color: #8b6a06; */
             animation: pattern 5s infinite alternate linear;
@@ -142,13 +142,13 @@
                 </h1>
             </div>
             <div style="display: flex">
-                <div class="col col-md-12 card-body" style="width: 50%" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">
+                <div class="col col-md-12 card-body" style="width: 50%" data-aos="fade-right" data-aos-duration="1500">
                     <img src="{{Storage::url('public/me.jpg')}}" style="width: 70%; border-radius: 50%;"
                         class="mt-4 shadows spin">
                 </div>
                 <div class="col col-md-12 card-body" style="color: #fff;width: 50%; margin: auto 4rem !important;">
                     <p class="lead text-warning" style="width: 80%; margin: 40px auto; text-align: right;"
-                        data-aos="fade-left" data-aos-duration="1500" data-aos-delay="300">Lorem ipsum dolor sit amet,
+                        data-aos="fade-left" data-aos-duration="1500">Lorem ipsum dolor sit amet,
                         consectetur adipiscing
                         elit.
                         Phasellus rhoncus
