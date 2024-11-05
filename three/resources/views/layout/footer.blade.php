@@ -16,7 +16,7 @@
     }
 </style>
 
-<footer class="py-3 shadow" style="background-color:#130c0b;">
+<footer class="py-3 shadow" style="background-color:#130c0b;z-index: 10000;position: absolute;width: 100%;">
     <p class="text-warning" style="text-align:center">__</p>
     <ul class="nav justify-content-center borderb-our pb-3 mb-3 ">
         <li class="nav-item me-3 me-lg-0">

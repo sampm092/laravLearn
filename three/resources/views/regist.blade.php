@@ -29,7 +29,7 @@
 
       .cover {
         width: 50%;
-        height: 108vh;
+        height: 798px;
         /* Semi-transparent cover */
         position: absolute;
         top: 0;
@@ -41,10 +41,11 @@
 
       #login,
       #regist {
-        height: 108vh;
+        height: max-content;
         width: 50%;
         position: relative;
         display: inline-block;
+        padding-bottom: 50px;
       }
 
 
@@ -71,6 +72,25 @@
           background-position: 2rem;
         }
 
+      }
+
+      @media only screen and (max-width: 1000px) {
+        #login{
+          display: none;
+        }
+        #cover{
+          display: none;
+        }
+        #regist{
+          width: 100%;
+        }
+
+        .navbar-nav,.nav-item{
+          display: flex !important;
+          flex-direction: row;
+          padding-right: .5rem;
+          padding-left: .5rem;
+        }
       }
 
       .navbar .nav-link {
@@ -109,6 +129,8 @@
       ::-webkit-file-upload-button {
         display: none;
       }
+
+      
     </style>
 
     @include('layout.notif')
@@ -116,28 +138,26 @@
       <div id="login" class="bg-image shadow-2-strong" style="background-color: rgba(0, 0, 0, 0.8);">
       </div>
       <div id="regist" class="bg-image shadow-2-strong" style="background-color: rgba(0, 0, 0, 0.8);">
-        <div id="bigC2" class="">
-          <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000; position: inherit">
+        <div id="bigC2">
+          <nav class="navbar navbar-expand-lg navbar-dark d-lg-block" style="z-index: 2000; position: inherit">
             <div class="container-fluid">
               <!-- Navbar brand -->
-              <a class="navbar-brand nav-link" target="_blank" href="#">
-                <strong>MyBookList</strong>
-              </a>
-              <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#navbarExample01"
-                aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarExample01">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li>
+                  <a class="navbar-brand nav-link" target="_blank" href="#">
+                    <strong>MyBookList</strong>
+                  </a>
+                  </li>
                   <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="#father">Home</a>
                   </li>
                   <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="#">About</a>
                   </li>
-                </ul>
+                
 
-                <ul class="navbar-nav d-flex flex-row">
+
                   <!-- Icons -->
                   <li class="nav-item me-3 me-lg-0">
                     <a class="nav-link" href="https://www.youtube.com/" rel="nofollow" target="_blank">
@@ -159,14 +179,14 @@
                       <i class="fab fa-github"></i>
                     </a>
                   </li>
-                </ul>
-              </div>
+                  </ul>
+              
             </div>
           </nav>
           <div id="cont" class="mask d-flex align-items-center h-100 mt-5">
             <div class="container">
               <div class="row justify-content-center">
-                <div class="col-sm-6 col-md-8">
+                <div class="col-md-8">
                   <form class="bg-white rounded shadow-5-strong p-5" method="POST" action="{{ route('registore')}}"
                     enctype="multipart/form-data">
                     @csrf
@@ -214,7 +234,8 @@
                         value="Register">
                       <div style="width: 15%; margin-left: 5px" class="btn btn-primary">
                         <p style="color: white;position: absolute;font-size: 20px;margin: inherit;">+</p>
-                        <input type="file" accept=".png, .jpg, .jpeg" class="btn" name="picture" style="opacity: 0%" />
+                        <input type="file" accept=".png, .jpg, .jpeg" class="btn" name="picture"
+                          style="opacity: 0%;max-width: -webkit-fill-available;" />
                       </div>
                     </div>
                     <div class="col text-center mt-3">
