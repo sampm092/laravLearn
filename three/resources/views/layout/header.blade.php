@@ -41,7 +41,7 @@
                     <li><a href="{{route('welcome')}}"
                             class="navbar-brand fw-light text-warning">{{ config('app.name') }}</a></li>
                     <li><a href="{{route('bookView')}}" class="nav-link px-2 text-warning">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-warning">About</a></li>
+                    <li><a href="{{route('about')}}" class="nav-link px-2 text-warning">About</a></li>
                 </ul>
 
                 <form action="{{ route('profile') }}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="GET">

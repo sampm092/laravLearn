@@ -56,6 +56,17 @@
             background-color: #fff;
             background-clip: border-box;
         }
+
+        .mleft-auto{
+            margin-left: auto !important;
+        }
+
+        @media only screen and (max-width: 992px) {
+            .mleft-auto{
+                margin-left: 0 !important;
+                margin-top: 10px;
+            }
+        }
     </style>
     <header id="header" class="p-3 text-white shadows bg-dark">
         <div class="container" >
@@ -64,9 +75,9 @@
                     <li><a href="{{route('welcome')}}"
                             class="navbar-brand fw-light text-warning">{{ config('app.name') }}</a></li>
                     <li><a href="{{route('bookView')}}" class="nav-link px-2 text-warning">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-warning">About</a></li>
+                    <li><a href="{{route('about')}}" class="nav-link px-2 text-warning">About</a></li>
                 </ul>
-                <div class="text-end ms-auto" style="margin-left: auto">
+                <div class="text-end ms-auto mleft-auto">
                     <a type="button" href="{{route('profile')}}" class="alt-btn btn-outline-warning btn-dark mr-2">
                         <img src="{{Storage::url('public/profile/'.Auth::user()->picture)}}"
                             alt="" style="width: 35px;height:35px;padding:0">

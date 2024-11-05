@@ -33,6 +33,11 @@ class IndexController extends Controller
         return view('regist');
     }
 
+    public function about()
+    {
+        return view('about');
+    }
+
     public function registore(Request $request)
     {
         $this->validate($request, [

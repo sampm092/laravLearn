@@ -30,3 +30,4 @@ Route::get('{book}/detailed', [ProfileController::class, 'detailed'])->name('det
 Route::post('/profile', [ProfileController::class, 'store'])->name('store');
 Route::put('{book}/', [ProfileController::class, 'update'])->name('update');
 Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('delete'); //delete book
+Route::get('/about', [IndexController::class,'about'])->name('about');

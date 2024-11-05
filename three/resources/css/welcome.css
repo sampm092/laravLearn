@@ -1,0 +1,132 @@
+.inter-font {
+    font-family: "Inter", "Avenir", lucida grande, tahoma, verdana, arial, sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+#hover1 {
+    color: #212529;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    box-shadow: 0 0 5px #ffc107;
+}
+
+#hover1:hover {
+    color: #ffc107;
+    border-color: #ffc107;
+    background-color: transparent;
+    box-shadow: 0 0 5px #656459;
+}
+
+#hover2 {
+    color: #ffc107;
+    background-color: transparent;
+    border-color: #ffc107;
+    box-shadow: 0 0 5px #656459;
+
+}
+
+#hover2:hover {
+    color: #212529;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    box-shadow: 0 0 5px #ffc107;
+}
+
+.shadows {
+    box-shadow: 0 .1rem 1rem #000 !important;
+}
+
+.background {
+    background:
+        linear-gradient(180deg, #8b6a06, #130c0b, #130c0b, #130c0b, #8b6a06);
+    /* background-size: 8rem 25%; */
+    /* background-color: #8b6a06; */
+    animation: pattern 5s infinite alternate linear;
+}
+
+.spin {
+    animation: spin 30s infinite alternate linear;
+}
+
+.o-header {
+    position: fixed;
+    /* Fixes the element to the viewport */
+    top: 0;
+    /* Aligns it to the top */
+    left: 0;
+    width: 100%;
+    /* Makes it full width */
+    z-index: 3000;
+    /* Ensures it's on top of other elements */
+}
+
+.mleft-auto {
+    margin-left: auto;
+}
+
+.welcome1 {
+    color: #fff;
+    width: 50%;
+    margin: auto 4rem !important;
+}
+
+.about1 {
+    display: flex
+}
+
+.about-right {
+    width: 80%;
+    margin: 40px auto;
+    text-align: right;
+}
+
+@keyframes pattern {
+    to {
+        background-position: 2rem;
+    }
+
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@media only screen and (max-width: 992px) {
+    .mleft-auto {
+        margin-left: 0 !important;
+
+    }
+
+    .background, #welcome{
+        display: block !important;
+    }
+
+    header {
+        position: relative !important;
+    }
+
+    .display-2 {
+        font-size: 4.5rem !important;
+    }
+
+    .welcome1 {
+        margin: auto !important;
+    }
+
+    .about-right{
+        text-align: center !important;
+    }
+
+    .about1{
+        justify-items: center;
+        display: block !important;
+    }
+}
