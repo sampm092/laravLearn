@@ -65,6 +65,26 @@
             /* Ensures it's on top of other elements */
         }
 
+        .mleft-auto {
+            margin-left: auto;
+        }
+
+        .welcome1 {
+            color: #fff;
+            width: 50%;
+            margin: auto 4rem !important;
+        }
+
+        .about1 {
+            display: flex
+        }
+
+        .about-right {
+            width: 80%;
+            margin: 40px auto;
+            text-align: right;
+        }
+
         @keyframes pattern {
             to {
                 background-position: 2rem;
@@ -79,6 +99,39 @@
 
             to {
                 transform: rotate(360deg);
+            }
+        }
+
+
+        @media only screen and (max-width: 992px) {
+            .mleft-auto {
+                margin-left: 0 !important;
+
+            }
+
+            .background, #welcome{
+                display: block !important;
+            }
+
+            header {
+                position: relative !important;
+            }
+
+            .display-2 {
+                font-size: 4.5rem !important;
+            }
+
+            .welcome1 {
+                margin: auto !important;
+            }
+
+            .about-right{
+                text-align: center !important;
+            }
+
+            .about1{
+                justify-items: center;
+                display: block !important;
             }
         }
     </style>
@@ -97,7 +150,7 @@
                     @endauth
                     <li><a href="#about" class="nav-link px-2 text-white">About Me</a></li>
                 </ul>
-                <div class="text-end ms-auto" style="margin-left: auto">
+                <div class="text-end ms-auto mleft-auto">
                     @guest
                         <a id="hover2" type="button" href="{{ route('login') }}"
                             class="btn btn-outline-warning btn-dark me-2">Login</a>
@@ -120,7 +173,7 @@
         </div>
     </header>
     <div id="welcome" class="content background" style="min-height:100vh; display: flex;">
-        <div class="col col-md-12 card-body" style="color: #fff;width: 50%; margin: auto 4rem !important;">
+        <div class="col col-md-12 card-body welcome1">
             <h4 data-aos="zoom-in" data-aos-duration="1000">Welcome to</h4>
             <h1 class="display-2" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200"
                 style="font-weight: 600">MyBookList</h1>
@@ -141,14 +194,14 @@
                     Me
                 </h1>
             </div>
-            <div style="display: flex">
+            <div class="about1">
                 <div class="col col-md-12 card-body" style="width: 50%" data-aos="fade-right" data-aos-duration="1500">
                     <img src="{{Storage::url('public/me.jpg')}}" style="width: 70%; border-radius: 50%;"
                         class="mt-4 shadows spin">
                 </div>
                 <div class="col col-md-12 card-body" style="color: #fff;width: 50%; margin: auto 4rem !important;">
-                    <p class="lead text-warning" style="width: 80%; margin: 40px auto; text-align: right;"
-                        data-aos="fade-left" data-aos-duration="1500">Lorem ipsum dolor sit amet,
+                    <p class="lead text-warning about-right" data-aos="fade-left" data-aos-duration="1500">Lorem ipsum dolor sit
+                        amet,
                         consectetur adipiscing
                         elit.
                         Phasellus rhoncus

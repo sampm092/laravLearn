@@ -145,15 +145,12 @@
               
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li>
-                  <a class="navbar-brand nav-link" target="_blank" href="#">
-                    <strong>MyBookList</strong>
+                  <a class="navbar-brand nav-link"  href="{{route('welcome')}}">
+                    <strong>{{ config('app.name') }}</strong>
                   </a>
                   </li>
                   <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="#father">Home</a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" aria-current="page" href="#">About</a>
                   </li>
                 
 
