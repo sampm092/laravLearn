@@ -80,7 +80,7 @@
                 <div class="text-end ms-auto mleft-auto">
                     <a type="button" href="{{route('profile')}}" class="alt-btn btn-outline-warning btn-dark mr-2">
                         <img src="{{Storage::url('public/profile/'.Auth::user()->picture)}}"
-                            alt="" style="width: 35px;height:35px;padding:0">
+                            alt="" style="width: 35px;height:35px;padding:0;border-radius: 3px;">
                     </a>
                     <a type="button" href="{{route('profile')}}" class="our-orange">
                         {{Auth::user()->username}}

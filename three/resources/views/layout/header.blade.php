@@ -75,13 +75,11 @@
         }
     </style>
 
-    <div class="container mt-3" style="padding: inherit;border-radius: 5px;">
+
         <!-- include memanggil isi file layout\navbar  -->
 
         <!-- yield menjadikan Section konten yang ada di profile -->
         @yield('content') 
-
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
