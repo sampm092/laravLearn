@@ -31,4 +31,5 @@ Route::post('/profile', [ProfileController::class, 'store'])->name('store');
 Route::put('{book}/', [ProfileController::class, 'update'])->name('update');
 Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('delete'); //delete book
 Route::put('{/profile', [ProfileController::class, 'updateProfile'])->name('updateProfile');
+Route::delete('/profile/', [ProfileController::class, 'destroyProfile'])->name('destroyProfile');
 Route::get('/about', [IndexController::class,'about'])->name('about');

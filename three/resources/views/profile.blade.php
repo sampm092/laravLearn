@@ -52,6 +52,11 @@ BOOK LIST -->
         position: absolute;
         border-radius: inherit;
     }
+
+    .button-bottom {
+        height: fit-content;
+        margin-top: auto;
+    }
 </style>
 <!-- extends menggunakan layout\header  -->
 @extends('layout.header')
@@ -162,16 +167,18 @@ BOOK LIST -->
                                 value="{{ old('username', $user->username) }}" placeholder="Ubah username" disabled />
                         </h1>
                     </div>
+                    <button type="submit" class="btn btn-md btn-primary button-bottom">UPDATE</button>
+                    <button type="reset" class="btn btn-md btn-warning button-bottom ml-2">RESET</button>
                 </div>
 
-                <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
-                <button type="reset" class="btn btn-md btn-warning">RESET</button>
             </form>
         </div>
         <div>
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+            <form action="{{ route('destroyProfile', $user->id) }}" method="POST" onsubmit="confirmDelete(event)">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
         </div>
         <!-- <div id="preview">
             <img id="uploadedImage" style="border-radius: 100px;width: 200px;height: 200px;"
@@ -182,6 +189,8 @@ BOOK LIST -->
 </div>
 </div>
 @endsection
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     const nav_link = document.getElementsByClassName("nav-link");
@@ -224,6 +233,23 @@ BOOK LIST -->
         } else {
             alert("Please upload a valid image file.");
         }
+    }
+
+    function confirmDelete(event) {
+        event.preventDefault(); // Prevent form submission
+        Swal.fire({
+            title: 'Are you sure to delete your account?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                event.target.closest('form').submit(); // Submit the form if confirmed
+            }
+        });
     }
 
 </script>

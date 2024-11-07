@@ -205,6 +205,23 @@ class ProfileController extends Controller
         }
     }
 
+    public function destroyProfile()
+    {
+        $userID = auth()->id();
+        $user = User::findOrFail($userID);
+        Storage::disk('local')->delete('public/profile/' . $user->cover);
+        $user->delete();
+
+        if ($user) {
+            //redirect dengan pesan sukses
+            return redirect()->route('welcome')->with(['success' => 'Account deleted successfully !']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('welcome')->with(['error' => 'Account can not be deleted']);
+        }
+
+    }
+
     public function detailed(Book $book)
     {
         $book = Book::findOrFail($book->id);
