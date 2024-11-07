@@ -14,8 +14,10 @@ class ProfileController extends Controller
     {
         $userID = auth()->id();
         $user = User::with('books')->findOrFail($userID);
+        // $profile = User::latest();
         
         $booksQuery = $user->books()->orderBy('created_at', 'DESC');
+        // dump($user);
     
         // Apply search filters if the request has a 'search' parameter
         if (request()->has('search')) {
