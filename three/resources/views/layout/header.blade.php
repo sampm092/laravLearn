@@ -50,9 +50,9 @@
                 </form>
 
                 <div class="text-end ml-auto">
-                    <form action="{{route('logout')}}" method="POST">
+                    <form action="{{route('logout')}}" method="POST" class="m-auto">
                         @csrf
-                        <button type="submit" class="btn btn-outline-danger btn-dark me-2" style="">Logout</button>
+                        <button type="submit" class="btn btn-outline-danger btn-dark2 me-2">Logout</button>
                     </form>
                 </div>
             </div>

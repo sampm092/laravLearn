@@ -57,6 +57,21 @@ BOOK LIST -->
         height: fit-content;
         margin-top: auto;
     }
+
+    .btn-dark2 {
+        background-color: #130c0b;
+    }
+
+    .Box-row {
+        border-top: var(--borderWidth-thin) solid var(--borderColor-muted);
+        list-style-type: none;
+        margin-top: calc(var(--borderWidth-thin)* -1);
+        padding: var(--stack-padding-normal);
+    }
+
+    .flex-sm-nowrap {
+        flex-wrap: nowrap !important;
+    }
 </style>
 <!-- extends menggunakan layout\header  -->
 @extends('layout.header')
@@ -173,17 +188,26 @@ BOOK LIST -->
 
             </form>
         </div>
-        <div>
-            <form action="{{ route('destroyProfile', $user->id) }}" method="POST" onsubmit="confirmDelete(event)">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
+
+        <div class="Box-row flex-sm-nowrap d-flex flex-items-center flex-wrap p-3 mb-3" style="border: 3px solid #dc3545;
+    border-radius: 10px;">
+            <div class="flex-auto mb-md-0 mb-2">
+                <strong>
+                    Delete this account?
+                </strong>
+                <p class="mb-0">
+                    Once you delete this account, there is no going back. Please be certain.
+                </p>
+            </div>
+            <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
+                <form class="m-auto" action="{{ route('destroyProfile', $user->id) }}" method="POST" onsubmit="confirmDelete(event)">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
         </div>
-        <!-- <div id="preview">
-            <img id="uploadedImage" style="border-radius: 100px;width: 200px;height: 200px;"
-                alt="Uploaded Image Preview">
-        </div> -->
+
     </div>
 </div>
 </div>
