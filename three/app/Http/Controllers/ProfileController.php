@@ -170,6 +170,41 @@ class ProfileController extends Controller
         }
     }
 
+    public function updateProfile(Request $request)
+    {
+        $userID = auth()->id();
+        $user = User::findOrFail($userID);
+        
+        if ($request->file('picture') == "") {
+            $user->update([
+                'username' => $request->username
+            ]);
+        } else if (File::exists($request->file('picture'))) {
+            //hapus image lama
+            Storage::disk('local')->delete('public/profile/' . $user->picture);
+            //upload new image
+            $image = $request->file('picture');
+            $image->storeAs('public/profile', $image->hashName());
+
+            $user->update([
+                'picture' => $image->hashName(),
+                'username' => $request->username
+            ]);
+
+        } else {
+            echo 'gagal';
+        }
+
+
+        if ($user) {
+            //redirect dengan pesan sukses
+            return redirect()->route('profile')->with(['success' => 'Book updated successfully!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('profile')->with(['error' => 'Update failed']);
+        }
+    }
+
     public function detailed(Book $book)
     {
         $book = Book::findOrFail($book->id);

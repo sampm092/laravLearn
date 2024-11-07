@@ -56,6 +56,7 @@ BOOK LIST -->
 <!-- extends menggunakan layout\header  -->
 @extends('layout.header')
 @section('content')
+@include('layout.notif')
 
 <div style="display:flex; min-height: 85vh;">
     <!-- SIDEBAR -->
@@ -82,9 +83,9 @@ BOOK LIST -->
     </div>
 
 
+
     <!-- BOOK SECTION -->
     <div id="book-sect" class="container mt-3" style="padding: inherit;border-radius: 5px;display:flex;">
-        @include('layout.notif')
         <div class="col-md-12 mb-4" style="min-height:80vh">
             <div class="card-body">
                 <a href="{{ route('create') }}" class="btn btn-md mb-3"
@@ -135,8 +136,9 @@ BOOK LIST -->
         <!-- Perta,a buat username input tapi inactive dulu, kalo klik tombol edit jadi active jadi bisa edit username
             buat gambar besar dan bikin ubah gambar profil, terus buat button merah untuk delete akun pake alert(kalo bisa 2 kyk github) -->
         <div id="form">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{route('updateProfile', $user->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="form-outline m-5 d-flex" data-mdb-input-init>
                     <div class="" xlink:href="" style="border-radius: 100px;width: 200px;height: 200px;">
                         <input type="file" accept=".png, .jpg, .jpeg" class="btn edit-pict" name="picture"
@@ -161,6 +163,9 @@ BOOK LIST -->
                         </h1>
                     </div>
                 </div>
+
+                <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
+                <button type="reset" class="btn btn-md btn-warning">RESET</button>
             </form>
         </div>
         <div>
