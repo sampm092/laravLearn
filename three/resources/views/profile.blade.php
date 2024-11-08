@@ -81,7 +81,7 @@ BOOK LIST -->
 <div style="display:flex; min-height: 85vh;">
     <!-- SIDEBAR -->
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
-        style="width: 30vh;border-top: 1px solid #ffc107">
+        style="width: 30vh;border-top: 1px solid #ffc107; ">
         <ul class="nav nav-pills flex-column mb-auto  mt-5">
             <li class="nav-item">
                 <a href="#" onclick="toBooks()" class="nav-link active text-white" aria-current="page">
@@ -188,28 +188,37 @@ BOOK LIST -->
 
             </form>
         </div>
+        <div>
+            <ul class="list-group mb-5">
+                <li class="list-group-item list-group-item-dark">Username: {{ $user->username}}</li>
+                <li class="list-group-item list-group-item-dark">Email: {{ $user->email}}</li>
+                <li class="list-group-item list-group-item-dark">Account Created: {{ $user->created_at}}</li>
+                <li class="list-group-item list-group-item-dark">Last Modified: {{$user->updated_at}}</li>
+            </ul>
+            </div>
 
-        <div class="Box-row flex-sm-nowrap d-flex flex-items-center flex-wrap p-3 mb-3" style="border: 3px solid #dc3545;
+                <div class="Box-row flex-sm-nowrap d-flex flex-items-center flex-wrap p-3 mb-3" style="border: 3px solid #dc3545;
     border-radius: 10px;">
-            <div class="flex-auto mb-md-0 mb-2">
-                <strong>
-                    Delete this account?
-                </strong>
-                <p class="mb-0"> 
-                    Once you delete this account, there is no going back. Please be certain.
-                </p>
-            </div>
-            <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
-                <form class="m-auto" action="{{ route('destroyProfile', $user->id) }}" method="POST" onsubmit="confirmDelete(event)">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </div>
-        </div>
+                    <div class="flex-auto mb-md-0 mb-2">
+                        <strong>
+                            Delete this account?
+                        </strong>
+                        <p class="mb-0">
+                            Once you delete this account, there is no going back. Please be certain.
+                        </p>
+                    </div>
+                    <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
+                        <form class="m-auto" action="{{ route('destroyProfile', $user->id) }}" method="POST"
+                            onsubmit="confirmDelete(event)">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
 
+        </div>
     </div>
-</div>
 </div>
 </div>
 @endsection
