@@ -195,7 +195,7 @@ BOOK LIST -->
                 <strong>
                     Delete this account?
                 </strong>
-                <p class="mb-0">
+                <p class="mb-0"> 
                     Once you delete this account, there is no going back. Please be certain.
                 </p>
             </div>
