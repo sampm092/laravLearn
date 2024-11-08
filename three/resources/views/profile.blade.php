@@ -72,6 +72,16 @@ BOOK LIST -->
     .flex-sm-nowrap {
         flex-wrap: nowrap !important;
     }
+
+    @media screen and (max-width: 768px) {
+
+        th,
+        td {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
 </style>
 <!-- extends menggunakan layout\header  -->
 @extends('layout.header')
@@ -109,11 +119,11 @@ BOOK LIST -->
         <div class="col-md-12 mb-4" style="min-height:80vh">
             <div class="card-body">
                 <a href="{{ route('create') }}" class="btn btn-md mb-3"
-                    style="color: #fff;    background-color: #343a40 !important; ">ADD
-                    BOOK</a>
+                    style="color: #fff;background-color: #343a40 !important; ">ADD BOOK</a>
                 <table class="table table-bordered table-striped table-hover">
                     <thead class="thead-dark">
                         <tr>
+                            <!-- <th scope="col">No</th> -->
                             <th scope="col">Book Cover</th>
                             <th scope="col">Book Title</th>
                             <th scope="col">Author</th>
@@ -124,6 +134,7 @@ BOOK LIST -->
                     <tbody>
                         @foreach ($books as $book)
                             <tr>
+                                <!-- <td class="text-center">{{$book->id}}</td> -->
                                 <td class="text-center">
                                     <img src=" {{ Storage::url('public/books/' . $book->cover) }} " class="rounded"
                                         style="height: 150px; max-width: 185px;">
@@ -195,30 +206,30 @@ BOOK LIST -->
                 <li class="list-group-item list-group-item-dark">Account Created: {{ $user->created_at}}</li>
                 <li class="list-group-item list-group-item-dark">Last Modified: {{$user->updated_at}}</li>
             </ul>
-            </div>
-
-                <div class="Box-row flex-sm-nowrap d-flex flex-items-center flex-wrap p-3 mb-3" style="border: 3px solid #dc3545;
-    border-radius: 10px;">
-                    <div class="flex-auto mb-md-0 mb-2">
-                        <strong>
-                            Delete this account?
-                        </strong>
-                        <p class="mb-0">
-                            Once you delete this account, there is no going back. Please be certain.
-                        </p>
-                    </div>
-                    <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
-                        <form class="m-auto" action="{{ route('destroyProfile', $user->id) }}" method="POST"
-                            onsubmit="confirmDelete(event)">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </div>
-                </div>
-
         </div>
+
+        <div class="Box-row flex-sm-nowrap d-flex flex-items-center flex-wrap p-3 mb-3" style="border: 3px solid #dc3545;
+    border-radius: 10px;">
+            <div class="flex-auto mb-md-0 mb-2">
+                <strong>
+                    Delete this account?
+                </strong>
+                <p class="mb-0">
+                    Once you delete this account, there is no going back. Please be certain.
+                </p>
+            </div>
+            <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
+                <form class="m-auto" action="{{ route('destroyProfile', $user->id) }}" method="POST"
+                    onsubmit="confirmDelete(event)">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+
     </div>
+</div>
 </div>
 </div>
 @endsection
