@@ -5,4 +5,5 @@ three = 3rd practice using https://youtu.be/iniIUcAKuLA?si=61-DTKNDjrIEEhb2 with
 Three flowchart
 ![image](https://github.com/user-attachments/assets/9386ddac-1570-43cb-a394-0d0671a604a3)
 
-absen 9/11/24
+Libur 1: 9/11/24
+Libur 2: 10/11/24
