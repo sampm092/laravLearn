@@ -30,8 +30,11 @@ class ProfileController extends Controller
     
         // Paginate after applying the search filters
         $books = $booksQuery->paginate(10);
+        // $bookURL = Storage::url('public/books/' . $books->cover);
+                dump($booksQuery);
+        $profileImageUrl = Storage::url('public/profile/' . $user->picture);
     
-        return view('profile', compact('user', 'books'));
+        return view('profile', compact('user', 'books','profileImageUrl'));
         // SEARCH FOR NO PAGINATION 
         // $books = $user->books()->orderBy('created_at', 'DESC')->paginate(10);
 

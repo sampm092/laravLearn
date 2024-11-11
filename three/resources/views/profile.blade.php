@@ -174,7 +174,7 @@ BOOK LIST -->
                     <div class="" xlink:href="" style="border-radius: 100px;width: 200px;height: 200px;">
                         <input type="file" accept=".png, .jpg, .jpeg" class="btn edit-pict" name="picture"
                             onchange="displayImage(event)" />
-                        <img id="uploadedImage" src="{{ Storage::url('public/profile/' . Auth::user()->picture) }}"
+                        <img id="uploadedImage" src="{{ $profileImageUrl }}"
                             alt="" class="img-fluid" style="border-radius: 100px;width: 100%;height: 100%;">
                     </div>
                     <div class="m-auto d-flex">
