@@ -57,30 +57,33 @@
             background-clip: border-box;
         }
 
-        .mleft-auto{
+        .mleft-auto {
             margin-left: auto !important;
         }
 
         @media only screen and (max-width: 992px) {
-            .mleft-auto{
+            .mleft-auto {
                 margin-left: 0 !important;
                 margin-top: 10px;
             }
         }
     </style>
     <header id="header" class="p-3 text-white shadows bg-dark">
-        <div class="container" >
+        <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="{{route('welcome')}}"
                             class="navbar-brand fw-light text-warning">{{ config('app.name') }}</a></li>
                     <li><a href="{{route('bookView')}}" class="nav-link px-2 text-warning">Home</a></li>
                     <li><a href="{{route('about')}}" class="nav-link px-2 text-warning">About</a></li>
+                    @if (Auth::user()->is_admin)
+                        <li><a href="{{route('admin.dashboard')}}" class="nav-link px-2 text-warning">Admin</a></li>
+                    @endif
                 </ul>
                 <div class="text-end ms-auto mleft-auto">
                     <a type="button" href="{{route('profile')}}" class="alt-btn btn-outline-warning btn-dark mr-2">
-                        <img src="{{Storage::url('public/profile/'.Auth::user()->picture)}}"
-                            alt="" style="width: 35px;height:35px;padding:0;border-radius: 3px;">
+                        <img src="{{Storage::url('public/profile/' . Auth::user()->picture)}}" alt=""
+                            style="width: 35px;height:35px;padding:0;border-radius: 3px;">
                     </a>
                     <a type="button" href="{{route('profile')}}" class="our-orange">
                         {{Auth::user()->username}}
@@ -116,6 +119,6 @@
                     </a>
                 </div>
             </div>
-            @endforeach
-        </div>
-        {{ $books->links()}}
+        @endforeach
+    </div>
+    {{ $books->links()}}

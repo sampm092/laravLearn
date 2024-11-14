@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('welcome'); //URL '/' pada browser mengembalikan function index pada kelas IndexController
-Route::get('/admin', [AdminController::class, 'showAdmin'])->name('admin.dashboard')->middleware('auth');
 Route::get('/login', [IndexController::class, 'login'])->name('login');
 Route::post('/login', [IndexController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [IndexController::class, 'logout'])->name('logout');
@@ -38,3 +37,5 @@ Route::group(['prefix' => 'profile/'], function(){ //Prefix untuk URL
     Route::delete('/', [ProfileController::class, 'destroyProfile'])->name('destroyProfile')->middleware('auth');
 });
 Route::get('/about', [IndexController::class, 'about'])->name('about');
+
+Route::get('/admin', [AdminController::class, 'showAdmin'])->name('admin.dashboard')->middleware(['auth','admin']);
