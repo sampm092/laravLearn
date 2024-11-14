@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\IndexController; //menggunakan kelas IndexController sesuai url
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,23 +17,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('welcome'); //URL '/' pada browser mengembalikan function index pada kelas IndexController
+Route::get('/admin', [AdminController::class, 'showAdmin'])->name('admin.dashboard')->middleware('auth');
 Route::get('/login', [IndexController::class, 'login'])->name('login');
 Route::post('/login', [IndexController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [IndexController::class, 'logout'])->name('logout');
 Route::get('/regist', [IndexController::class, 'regist'])->name('regist');
 Route::post('/regist', [IndexController::class, 'registore'])->name('registore');
 Route::get('/about', [ProfileController::class, 'about'])->name('about');
-Route::get('/dashboard', [ProfileController::class, 'bookView'])->name('bookView');
-Route::get('/create', [ProfileController::class, 'createV'])->name('create'); //create book
-Route::get('{book}/edit', [ProfileController::class, 'edit'])->name('edit'); // edit book
-Route::get('{book}/detailed', [ProfileController::class, 'detailed'])->name('detailed');
-Route::put('{book}/', [ProfileController::class, 'update'])->name('update');
-Route::get('/profile', [ProfileController::class, 'profile'])->name('profile'); //name digunakan pada saat memanggil rute di html
+Route::get('/dashboard', [ProfileController::class, 'bookView'])->name('bookView')->middleware('auth');
+Route::get('/create', [ProfileController::class, 'createV'])->name('create')->middleware('auth'); //create book
+Route::get('{book}/edit', [ProfileController::class, 'edit'])->name('edit')->middleware('auth'); // edit book
+Route::get('{book}/detailed', [ProfileController::class, 'detailed'])->name('detailed')->middleware('auth');
+Route::put('{book}/', [ProfileController::class, 'update'])->name('update')->middleware('auth');
+Route::get('/profile', [ProfileController::class, 'profile'])->name('profile')->middleware('auth'); //name digunakan pada saat memanggil rute di html
 
 Route::group(['prefix' => 'profile/'], function(){ //Prefix untuk URL
     Route::post('', [ProfileController::class, 'store'])->name('store');
-    Route::delete('/{id}', [ProfileController::class, 'destroy'])->name('delete'); //delete book
-    Route::put('{', [ProfileController::class, 'updateProfile'])->name('updateProfile');
-    Route::delete('/', [ProfileController::class, 'destroyProfile'])->name('destroyProfile');
+    Route::delete('/{id}', [ProfileController::class, 'destroy'])->name('delete')->middleware('auth'); //delete book
+    Route::put('{', [ProfileController::class, 'updateProfile'])->name('updateProfile')->middleware('auth');
+    Route::delete('/', [ProfileController::class, 'destroyProfile'])->name('destroyProfile')->middleware('auth');
 });
 Route::get('/about', [IndexController::class, 'about'])->name('about');
