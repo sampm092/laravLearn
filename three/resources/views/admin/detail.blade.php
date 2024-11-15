@@ -267,10 +267,49 @@
                     </p>
                 </div>
                 <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
-                        <a href=" {{ route('editPassword', $user->id) }}" class="btn btn-success">Change</a>
+                    <a href=" {{ route('editPassword', $user->id) }}" class="btn btn-success">Change</a>
                 </div>
             </div>
-            <div class="Box-row flex-sm-nowrap d-flex flex-items-center flex-wrap p-3 mb-3" style="border: 3px solid #dc3545;
+            <div class="Box-row flex-sm-nowrap d-flex flex-items-center flex-wrap p-3 mb-3" style="border: 3px solid #266189;
+                border-radius: 10px;">
+                @if ($user->is_admin === 0)
+                    <div class="flex-auto mb-md-0 mb-2">
+                        <strong style="color: #266189;">
+                            Admin status
+                        </strong>
+                        <p class="mb-0">
+                            Make this account admin?
+                        </p>
+                    </div>
+                    <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
+                    <form class="m-auto" action="{{ route('changeRole', $user->id) }}" method="POST"">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="btn btn-primary" style="min-width: 80px;">Change</button>
+                    </form>    
+                    <!-- <a href=" {{ route('changeRole', $user->id) }}" class="btn btn-success">Change</a> -->
+                    </div>
+                @endif
+                @if ($user->is_admin === 1)
+                    <div class="flex-auto mb-md-0 mb-2">
+                        <strong style="color: #266189;">
+                            Admin status
+                        </strong>
+                        <p class="mb-0">
+                            Erase this account admin status?
+                        </p>
+                    </div>
+                    <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
+                    <form class="m-auto" action="{{ route('changeRole', $user->id) }}" method="POST"">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="btn btn-primary" style="min-width: 80px;">Change</button>
+                    </form>    
+                    </div>
+                @endif
+
+            </div>
+            <div class="Box-row flex-sm-nowrap d-flex flex-items-center flex-wrap p-3 mb-5" style="border: 3px solid #dc3545;
     border-radius: 10px;">
                 <div class="flex-auto mb-md-0 mb-2">
                     <strong style="color: #dc3545;">

@@ -80,4 +80,27 @@ class AdminController extends Controller
             return redirect()->route('admin.dashboard')->with(['error' => 'Update failed']);
         }
     }
+
+    public function changeRole(Request $request, User $user) {
+        $user = User::findOrFail($user->id);
+        
+        if ($user->is_admin === 0) {
+            $user->update([
+                'is_admin' => 1
+            ]);
+        } else {
+            $user->update([
+                'is_admin' => 0
+            ]);
+        }
+
+
+        if ($user) {
+            //redirect dengan pesan sukses
+            return redirect()->route('admin.dashboard')->with(['success' => 'Book updated successfully!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('admin.dashboard')->with(['error' => 'Update failed']);
+        }
+    }
 }
