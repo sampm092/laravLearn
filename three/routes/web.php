@@ -39,3 +39,5 @@ Route::group(['prefix' => 'profile/'], function(){ //Prefix untuk URL
 Route::get('/about', [IndexController::class, 'about'])->name('about');
 
 Route::get('/admin', [AdminController::class, 'showAdmin'])->name('admin.dashboard')->middleware(['auth','admin']);
+Route::delete('/admin/{id}', [AdminController::class, 'destroyUser'])->name('destroyUser')->middleware(['auth','admin']);
+Route::get('/admin/{user}/detail', [AdminController::class, 'viewUser'])->name('admin.detail')->middleware('auth');
