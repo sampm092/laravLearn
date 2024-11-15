@@ -7,5 +7,7 @@ Three flowchart
 
 
 Libur 1: 9/11/24
+
 Libur 2: 10/11/24
+
 Absen 3: 13/11/24 -> push Guild War GBF
