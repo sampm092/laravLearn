@@ -73,6 +73,29 @@ BOOK LIST -->
         flex-wrap: nowrap !important;
     }
 
+    .search-our {
+        border: 1px solid #343a40;
+        display: block;
+        width: 100%;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #130c0b;
+        background-color: transparent;
+        background-clip: padding-box;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+
+    input::placeholder {
+        color: #343a40;
+        opacity: 1;
+        /* Firefox */
+    }
+
     @media screen and (max-width: 768px) {
 
         th,
@@ -120,7 +143,13 @@ BOOK LIST -->
             <div class="card-body">
                 <a href="{{ route('create') }}" class="btn btn-md mb-3"
                     style="color: #fff;background-color: #343a40 !important; ">ADD BOOK</a>
-                <table class="table table-bordered table-striped table-hover">
+                <div>
+                    <form action="{{ route('profile') }}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="GET">
+                        <input name="search" type="search" class="search-our" placeholder="Search..."
+                            aria-label="Search" style="">
+                    </form>
+                </div>
+                <table class="table table-bordered table-striped table-hover mt-4">
                     <thead class="thead-dark">
                         <tr>
                             <!-- <th scope="col">No</th> -->
@@ -174,8 +203,8 @@ BOOK LIST -->
                     <div class="" xlink:href="" style="border-radius: 100px;width: 200px;height: 200px;">
                         <input type="file" accept=".png, .jpg, .jpeg" class="btn edit-pict" name="picture"
                             onchange="displayImage(event)" />
-                        <img id="uploadedImage" src="{{ $profileImageUrl }}"
-                            alt="" class="img-fluid" style="border-radius: 100px;width: 100%;height: 100%;">
+                        <img id="uploadedImage" src="{{ $profileImageUrl }}" alt="" class="img-fluid"
+                            style="border-radius: 100px;width: 100%;height: 100%;">
                     </div>
                     <div class="m-auto d-flex">
                         <h1>
@@ -211,7 +240,7 @@ BOOK LIST -->
         <div class="Box-row flex-sm-nowrap d-flex flex-items-center flex-wrap p-3 mb-3" style="border: 3px solid #dc3545;
     border-radius: 10px;">
             <div class="flex-auto mb-md-0 mb-2">
-                <strong>
+                <strong style="color: #dc3545;">
                     Delete this account?
                 </strong>
                 <p class="mb-0">
@@ -244,9 +273,9 @@ BOOK LIST -->
         var books = document.getElementById("book-sect");
 
         books.classList.add("none");
-        nav_link[2].classList.remove("active");
+        nav_link[3].classList.remove("active");
         profile.classList.remove("none");
-        nav_link[3].classList.add("active");
+        nav_link[4].classList.add("active");
     }
 
     function toBooks() {
@@ -255,8 +284,8 @@ BOOK LIST -->
 
         books.classList.remove("none");
         profile.classList.add("none");
-        nav_link[3].classList.remove("active");
-        nav_link[2].classList.add("active");
+        nav_link[4].classList.remove("active");
+        nav_link[3].classList.add("active");
     }
 
     function enableInput() {

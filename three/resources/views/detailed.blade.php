@@ -13,7 +13,7 @@ BOOK LIST -->
             border-color: black;
         }
 
-        .underline:hover{
+        .underline:hover {
             text-decoration: underline;
         }
     </style>
@@ -42,13 +42,14 @@ BOOK LIST -->
         </div>
         <div style="margin: 18px 55px">
             <a href="{{ url()->previous() }}" class="btn">
-                < <span class="underline">Back</span></a>
-                    <div>
-                        <h3>Description :</h3>
-                    </div>
-                    <div>
-                        <p>{{ $books->desc}}</p>
-                    </div>
+                < <span class="underline">Back</span>
+            </a>
+            <div>
+                <h3>Description :</h3>
+            </div>
+            <div>
+                <p>{{ $books->desc}}</p>
+            </div>
         </div>
 
     </main>

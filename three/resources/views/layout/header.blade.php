@@ -22,30 +22,7 @@
 </head>
 
 <body>
-    <style>
-        .search-our {
-            border: 1px solid #ffc107;
-            display: block;
-            width: 100%;
-            height: calc(1.5em + .75rem + 2px);
-            padding: .375rem .75rem;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #ffc107;
-            background-color: transparent;
-            background-clip: padding-box;
-            border-radius: .25rem;
-            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-        }
 
-
-        input::placeholder {
-            color: #ffc107;
-            opacity: 1;
-            /* Firefox */
-        }
-    </style>
     <header id="header" class="p-3 text-white shadows bg-dark">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -54,12 +31,10 @@
                             class="navbar-brand fw-light text-warning">{{ config('app.name') }}</a></li>
                     <li><a href="{{route('bookView')}}" class="nav-link px-2 text-warning">Home</a></li>
                     <li><a href="{{route('about')}}" class="nav-link px-2 text-warning">About</a></li>
+                    @if (Auth::user()->is_admin)
+                        <li><a href="{{route('admin.dashboard')}}" class="nav-link px-2 text-warning">Admin</a></li>
+                    @endif
                 </ul>
-
-                <form action="{{ route('profile') }}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="GET">
-                    <input name="search" type="search" class="search-our" placeholder="Search..."
-                        aria-label="Search" style="">
-                </form>
 
                 <div class="text-end ml-auto">
                     <form action="{{route('logout')}}" method="POST" class="m-auto">

@@ -1,6 +1,16 @@
 @extends('layout.html')
+<style>
+    .back {
+        position: fixed;
+        top: 10px;
+        left: 5px;
+    }
+</style>
 
-<h1>WELCOME TO ADMIN DASHBOARD</h1>
+<h1 class="text-center mt-5">WELCOME TO ADMIN DASHBOARD</h1>
+<a href="{{ route('bookView') }}" class="btn back">
+    < <span class="underline">Back</span>
+</a>
 
 <div class="card-body" style="min-height: 95vh">
     <table class="table table-bordered table-striped table-hover">
@@ -23,7 +33,7 @@
                     <td>{{ $user->password }}</td>
                     <td>{{ $user->created_at }}</td>
                     <td class="text-center">
-                        <form  action="{{ route('destroyUser', $user->id) }}" method="POST" onsubmit="confirmDelete(event)">
+                        <form action="{{ route('destroyUser', $user->id) }}" method="POST" onsubmit="confirmDelete(event)">
                             <a href="{{ route('admin.detail', $user->id) }}" class="btn btn-sm btn-success">VIEW</a>
                             @csrf
                             @method('DELETE')
