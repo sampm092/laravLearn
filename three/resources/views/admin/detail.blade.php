@@ -267,11 +267,7 @@
                     </p>
                 </div>
                 <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
-                    <form class="m-auto" action="" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-success" style="min-width: 80px;">Change</button>
-                    </form>
+                        <a href=" {{ route('editPassword', $user->id) }}" class="btn btn-success">Change</a>
                 </div>
             </div>
             <div class="Box-row flex-sm-nowrap d-flex flex-items-center flex-wrap p-3 mb-3" style="border: 3px solid #dc3545;

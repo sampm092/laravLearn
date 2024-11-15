@@ -21,6 +21,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Password</th>
                 <th scope="col">Date Added</th>
+                <th scope="col">Role</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -32,6 +33,14 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->password }}</td>
                     <td>{{ $user->created_at }}</td>
+                    <td>
+                    @if ( $user->is_admin === 1)
+                        Admin
+                    @endif
+                    @if ( $user->is_admin === 0)
+                    User
+                    @endif
+                    </td>
                     <td class="text-center">
                         <form action="{{ route('destroyUser', $user->id) }}" method="POST" onsubmit="confirmDelete(event)">
                             <a href="{{ route('admin.detail', $user->id) }}" class="btn btn-sm btn-success">VIEW</a>

@@ -6,8 +6,6 @@ Three flowchart
 ![image](https://github.com/user-attachments/assets/c5fb907e-4ac3-4716-944e-ec9ccd6c4bf6)
 
 
-Libur 1: 9/11/24
-
-Libur 2: 10/11/24
-
+Libur 1: 9/11/24 <br \>
+Libur 2: 10/11/24 <br \>
 Absen 3: 13/11/24 -> push Guild War GBF

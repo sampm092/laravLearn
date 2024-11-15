@@ -40,4 +40,6 @@ Route::get('/about', [IndexController::class, 'about'])->name('about');
 
 Route::get('/admin', [AdminController::class, 'showAdmin'])->name('admin.dashboard')->middleware(['auth','admin']);
 Route::delete('/admin/{id}', [AdminController::class, 'destroyUser'])->name('destroyUser')->middleware(['auth','admin']);
-Route::get('/admin/{user}/detail', [AdminController::class, 'viewUser'])->name('admin.detail')->middleware('auth');
+Route::get('/admin/{user}/detail', [AdminController::class, 'viewUser'])->name('admin.detail')->middleware(['auth','admin']);
+Route::get('/admin/{user}/detail/edit', [AdminController::class, 'editPassword'])->name('editPassword')->middleware(['auth','admin']);
+Route::put('/admin/{user}/detail/', [AdminController::class, 'updateUser'])->name('updateUser')->middleware(['auth','admin']);
