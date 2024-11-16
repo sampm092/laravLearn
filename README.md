@@ -8,4 +8,5 @@ Three flowchart
 
 Libur 1: 9/11/24 <br />
 Libur 2: 10/11/24 <br />
-Absen 3: 13/11/24 -> push Guild War GBF
+Absen 3: 13/11/24 -> push Guild War GBF <br />
+Absen 4: 16/11/24 -> On a trip... left my pc at home
