@@ -96,13 +96,52 @@ BOOK LIST -->
         /* Firefox */
     }
 
-    @media screen and (max-width: 768px) {
+    
+    @media screen and (max-width: 1157px) {
+
+        #profile-sect{
+            margin: 25px;
+        }
+
+        #username {
+            max-width: 200px;
+        }
+
+        .center-after{
+            margin-left: 0 !important;
+            margin-top: 5px;
+        }
+
+        .d-flex {
+            flex-direction: column;
+        }
+
+        .side {
+            width: 100% !important;
+            border-top: 1px solid #ffc107;
+            height: fit-content;
+            margin-bottom: 5px;
+        }
+
+        footer{
+            z-index: 0 !important;
+        }
 
         th,
         td {
             display: block;
             width: 100%;
             box-sizing: border-box;
+        }
+
+    }
+    @media screen and (max-width: 1500px) {
+        button [reset] {
+            margin-left: .5rem !important;
+        }
+
+        .center-after{
+            margin-left: auto;
         }
     }
 </style>
@@ -115,9 +154,9 @@ BOOK LIST -->
 @section('content')
 @include('layout.notif')
 
-<div style="display:flex; min-height: 85vh;">
+<div class="d-flex" style="min-height: 85vh;">
     <!-- SIDEBAR -->
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark side"
         style="width: 30vh;border-top: 1px solid #ffc107; ">
         <ul class="nav nav-pills flex-column mb-auto  mt-5">
             <li class="nav-item">
@@ -227,7 +266,7 @@ BOOK LIST -->
                         </h1>
                     </div>
                     <button type="submit" class="btn btn-md btn-primary button-bottom">UPDATE</button>
-                    <button type="reset" class="btn btn-md btn-warning button-bottom ml-2">RESET</button>
+                    <button type="reset" class="btn btn-md btn-warning button-bottom">RESET</button>
                 </div>
 
             </form>

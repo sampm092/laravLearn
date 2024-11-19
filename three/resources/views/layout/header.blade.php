@@ -36,7 +36,7 @@
                     @endif
                 </ul>
 
-                <div class="text-end ml-auto">
+                <div class="text-end center-after">
                     <form action="{{route('logout')}}" method="POST" class="m-auto">
                         @csrf
                         <button type="submit" class="btn btn-outline-danger btn-dark2 me-2">Logout</button>
