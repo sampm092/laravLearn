@@ -108,6 +108,10 @@ BOOK LIST -->
 </style>
 <!-- extends menggunakan layout\header  -->
 @extends('layout.header')
+@section('cotitle')
+{{ $user->username }}
+@endsection
+
 @section('content')
 @include('layout.notif')
 

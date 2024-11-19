@@ -1,4 +1,7 @@
 @extends('layout.html')
+@section('cotitle')
+Admin Page
+@endsection
 <style>
     .back {
         position: fixed;
@@ -50,7 +53,7 @@
                             <a href="{{ route('admin.detail', $user->id) }}" class="btn btn-sm btn-success">VIEW</a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                            <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
                         </form>
                     </td>
                 </tr>

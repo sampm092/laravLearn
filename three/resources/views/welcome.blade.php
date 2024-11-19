@@ -1,4 +1,7 @@
 @extends('layout.html')
+@section('cotitle')
+Welcome
+@endsection
 
 <body class="inter-font">
     <style>

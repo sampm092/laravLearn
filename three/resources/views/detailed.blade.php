@@ -2,6 +2,9 @@
 BOOK LIST -->
 <!-- extends menggunakan layout\header  -->
 @extends('layout.html')
+@section('cotitle')
+{{$books->title}}
+@endsection
 
 @section('content')
 

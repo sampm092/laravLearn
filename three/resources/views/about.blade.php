@@ -1,5 +1,7 @@
 @extends('layout.html')
-
+@section('cotitle')
+About
+@endsection
 <style>
     .about1 {
         display: flex

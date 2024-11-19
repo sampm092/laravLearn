@@ -1,4 +1,7 @@
 @extends('layout.html')
+@section('cotitle')
+{{$user->username}}
+@endsection
 
 <body style="background-color:#d9d9d9;">
     <style>
