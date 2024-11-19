@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Deskripsi</label>
+                                <label class="font-weight-bold">Description</label>
                                 <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" rows="5"
                                     placeholder="Masukkan Konten Blog">{{ old('desc', $book->desc) }}</textarea>
 

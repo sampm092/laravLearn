@@ -179,7 +179,7 @@ BOOK LIST -->
                                         <a href=" {{ route('edit', $book->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                        <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
                                     </form>
                                 </td>
                             </tr>

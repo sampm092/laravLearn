@@ -74,10 +74,10 @@ class AdminController extends Controller
 
         if ($user) {
             //redirect dengan pesan sukses
-            return redirect()->route('admin.dashboard')->with(['success' => 'Book updated successfully!']);
+            return redirect()->route('admin.dashboard')->with(['success' => 'User deleted successfully!']);
         } else {
             //redirect dengan pesan error
-            return redirect()->route('admin.dashboard')->with(['error' => 'Update failed']);
+            return redirect()->route('admin.dashboard')->with(['error' => 'Delete failed']);
         }
     }
 
@@ -97,7 +97,7 @@ class AdminController extends Controller
 
         if ($user) {
             //redirect dengan pesan sukses
-            return redirect()->route('admin.dashboard')->with(['success' => 'Book updated successfully!']);
+            return redirect()->route('admin.dashboard')->with(['success' => 'User role changed successfully!']);
         } else {
             //redirect dengan pesan error
             return redirect()->route('admin.dashboard')->with(['error' => 'Update failed']);
