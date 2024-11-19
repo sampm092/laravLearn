@@ -109,13 +109,52 @@
             flex-wrap: nowrap !important;
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 1157px) {
+
+            #profile-sect {
+                margin: 25px;
+            }
+
+            #username {
+                max-width: 200px;
+            }
+
+            .center-after {
+                margin-left: 0 !important;
+                margin-top: 5px;
+            }
+
+            .d-flex {
+                flex-direction: column;
+            }
+
+            .side {
+                width: 100% !important;
+                border-top: 1px solid #ffc107;
+                height: fit-content;
+                margin-bottom: 5px;
+            }
+
+            footer {
+                z-index: 0 !important;
+            }
 
             th,
             td {
                 display: block;
                 width: 100%;
                 box-sizing: border-box;
+            }
+
+        }
+
+        @media screen and (max-width: 1500px) {
+            button [reset] {
+                margin-left: .5rem !important;
+            }
+
+            .center-after {
+                margin-left: auto;
             }
         }
     </style>
@@ -136,9 +175,9 @@
         </div>
     </header>
 
-    <div style="display:flex; min-height: 85vh;">
+    <div class="d-flex" style="min-height: 85vh;">
         <!-- SIDEBAR -->
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+        <div class="side d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
             style="width: 30vh;border-top: 1px solid #ffc107; ">
             <ul class="nav nav-pills flex-column mb-auto  mt-5">
                 <li class="nav-item">
@@ -214,7 +253,7 @@
             <!-- Perta,a buat username input tapi inactive dulu, kalo klik tombol edit jadi active jadi bisa edit username
             buat gambar besar dan bikin ubah gambar profil, terus buat button merah untuk delete akun pake alert(kalo bisa 2 kyk github) -->
             <div id="form">
-                <form action="{{route('updateProfile', $user->id)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('updateProfileAdmin', $user->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-outline m-5 d-flex" data-mdb-input-init>
@@ -222,7 +261,7 @@
                             <input type="file" accept=".png, .jpg, .jpeg" class="btn edit-pict" name="picture"
                                 onchange="displayImage(event)" />
                             <img id="uploadedImage" src="{{ $profileImageUrl }}" alt="" class="img-fluid"
-                                style="border-radius: 100px;width: 100%;height: 100%;">
+                                style="border-radius: 100px;width: 100%;height: 100%;min-height:150px">
                         </div>
                         <div class="m-auto d-flex">
                             <h1>
@@ -282,12 +321,11 @@
                         </p>
                     </div>
                     <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
-                    <form class="m-auto" action="{{ route('changeRole', $user->id) }}" method="POST"">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-primary" style="min-width: 80px;">Change</button>
-                    </form>    
-                    <!-- <a href=" {{ route('changeRole', $user->id) }}" class="btn btn-success">Change</a> -->
+                        <form class="m-auto" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type=" submit" class="btn btn-primary" style="min-width: 80px;">Change</button>
+                        </form>
                     </div>
                 @endif
                 @if ($user->is_admin === 1)
@@ -300,11 +338,11 @@
                         </p>
                     </div>
                     <div class="flex-md-order-1 flex-order-2 ml-auto" style="margin: auto 0 auto auto">
-                    <form class="m-auto" action="{{ route('changeRole', $user->id) }}" method="POST"">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-primary" style="min-width: 80px;">Change</button>
-                    </form>    
+                        <form class="m-auto"  method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type=" submit" class="btn btn-primary" style="min-width: 80px;">Change</button>
+                        </form>
                     </div>
                 @endif
 

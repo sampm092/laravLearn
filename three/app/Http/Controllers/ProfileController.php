@@ -15,26 +15,26 @@ class ProfileController extends Controller
         $userID = auth()->id();
         $user = User::with('books')->findOrFail($userID);
         // $profile = User::latest();
-        
+
         $booksQuery = $user->books()->orderBy('created_at', 'DESC');
         // dump($user);
-    
+
         // Apply search filters if the request has a 'search' parameter
         if (request()->has('search')) {
             $search = request()->get('search');
             $booksQuery->where(function ($query) use ($search) {
                 $query->where('title', 'LIKE', '%' . $search . '%')
-                      ->orWhere('author', 'LIKE', '%' . $search . '%');
+                    ->orWhere('author', 'LIKE', '%' . $search . '%');
             });
         }
-    
+
         // Paginate after applying the search filters
         $books = $booksQuery->paginate(10);
         // $bookURL = Storage::url('public/books/' . $books->cover);
-        
+
         $profileImageUrl = Storage::url('public/profile/' . $user->picture);
-    
-        return view('profile', compact('user', 'books','profileImageUrl'));
+
+        return view('profile', compact('user', 'books', 'profileImageUrl'));
         // SEARCH FOR NO PAGINATION 
         // $books = $user->books()->orderBy('created_at', 'DESC')->paginate(10);
 
@@ -49,22 +49,22 @@ class ProfileController extends Controller
     {
         $userID = auth()->id();
         $user = User::findOrFail($userID);
-    
+
         // Start building the books query with search filters
         $booksQuery = $user->books()->orderBy('created_at', 'DESC');
-    
+
         // Apply search filters if the request has a 'search' parameter
         if (request()->has('search')) {
             $search = request()->get('search');
             $booksQuery->where(function ($query) use ($search) {
                 $query->where('title', 'LIKE', '%' . $search . '%')
-                      ->orWhere('author', 'LIKE', '%' . $search . '%');
+                    ->orWhere('author', 'LIKE', '%' . $search . '%');
             });
         }
-    
+
         // Paginate after applying the search filters
         $books = $booksQuery->paginate(8);
-    
+
         return view('dashboard', compact('user', 'books'));
     }
 
@@ -96,7 +96,7 @@ class ProfileController extends Controller
             'title' => $request->title,
             'author' => $request->author,
             'desc' => $request->desc,
-            'user_id' => $userID    
+            'user_id' => $userID
         ]);
         $book->save();
 
@@ -177,25 +177,24 @@ class ProfileController extends Controller
     {
         $userID = auth()->id();
         $user = User::findOrFail($userID);
+
+        if ($request->hasFile('picture')) {
+            // Delete the old picture if it exists
+            if ($user->picture && Storage::disk('local')->exists('public/profile/' . $user->picture)) {
+                Storage::disk('local')->delete('public/profile/' . $user->picture);
+            }
         
-        if ($request->file('picture') == "") {
-            $user->update([
-                'username' => $request->username
-            ]);
-        } else if (File::exists($request->file('picture'))) {
-            //hapus image lama
-            Storage::disk('local')->delete('public/profile/' . $user->picture);
-            //upload new image
+            // Upload new picture
             $image = $request->file('picture');
             $image->storeAs('public/profile', $image->hashName());
-
-            $user->update([
-                'picture' => $image->hashName(),
-                'username' => $request->username
-            ]);
-
-        } else {
-            echo 'gagal';
+        
+            // Update the picture
+            $user->update(['picture' => $image->hashName()]);
+        }
+        
+        // Update the username if provided
+        if (!empty($request->username)) {
+            $user->update(['username' => $request->username]);
         }
 
 
@@ -228,7 +227,7 @@ class ProfileController extends Controller
     public function detailed(Book $book)
     {
         $book = Book::findOrFail($book->id);
-         
+
         return view('detailed', [
             'books' => $book
         ]);

@@ -119,9 +119,10 @@ Welcome
             header {
                 position: relative !important;
             }
+            
 
             .display-2 {
-                font-size: 4.5rem !important;
+                font-size: 3.5rem !important;
             }
 
             .welcome1 {

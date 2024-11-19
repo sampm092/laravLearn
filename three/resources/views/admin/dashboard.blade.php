@@ -3,9 +3,10 @@
 Admin Page
 @endsection
 <style>
-    *{
-        word-wrap: break-word; 
+    * {
+        word-wrap: break-word;
     }
+
     .back {
         position: absolute;
         top: 10px;
@@ -44,6 +45,7 @@ Admin Page
                 <thead class="thead-dark text-center">
                     <tr>
                         <th scope="col">ID</th>
+                        <th scope="col">Picture</th>
                         <th scope="col">Username</th>
                         <th scope="col">Email</th>
                         <th scope="col">Password</th>
@@ -56,6 +58,10 @@ Admin Page
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
+                            <td>
+                                <img src=" {{ Storage::url('public/profile/' . $user->picture) }} " class="rounded"
+                                    style="height: 50px; max-width: 185px;">
+                            </td>
                             <td>{{ $user->username }}
                                 @if ($user->id == Auth::user()->id)
                                     <b> (You)</b>

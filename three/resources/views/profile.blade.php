@@ -135,8 +135,8 @@ BOOK LIST -->
         }
 
     }
-    @media screen and (max-width: 1500px) {
-        button [reset] {
+    @media screen and (min-width: 1157px) {
+        .reset {
             margin-left: .5rem !important;
         }
 
@@ -266,7 +266,7 @@ BOOK LIST -->
                         </h1>
                     </div>
                     <button type="submit" class="btn btn-md btn-primary button-bottom">UPDATE</button>
-                    <button type="reset" class="btn btn-md btn-warning button-bottom">RESET</button>
+                    <button type="reset" class="reset btn btn-md btn-warning button-bottom">RESET</button>
                 </div>
 
             </form>

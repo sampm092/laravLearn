@@ -10,6 +10,12 @@ BOOK LIST -->
 
 <body style="background-color:#d9d9d9">
     <style>
+        .sub {
+            width: 280px;
+            height: auto;
+            background-color: #204f20
+        }
+
         hr {
             height: 2px;
             background-color: black;
@@ -19,10 +25,26 @@ BOOK LIST -->
         .underline:hover {
             text-decoration: underline;
         }
+
+        .main {
+            min-height: 100vh;
+            display: flex;
+
+        }
+
+        @media screen and (max-width: 1074px) {
+            .main {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sub {
+                width: 100% !important;
+            }
+        }
     </style>
-    <main style="height:100vh; display:flex">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white"
-            style="width: 280px; height: -webkit-fill-available;background-color: #204f20">
+    <div class="main">
+        <div class="sub d-flex flex-column flex-shrink-0 p-3 text-white">
             <div class="justify-content-center" style="margin: 40px auto">
                 <div class="fs-4" style="text-align:center"><img class="book-cover shadow"
                         src="{{ Storage::url('public/books/' . $books->cover) }}" alt="" style="width:150px; "></div>
@@ -55,7 +77,7 @@ BOOK LIST -->
             </div>
         </div>
 
-    </main>
 
+    </div>
 
     @endsection

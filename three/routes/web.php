@@ -44,3 +44,4 @@ Route::get('/admin/{user}/detail', [AdminController::class, 'viewUser'])->name('
 Route::get('/admin/{user}/detail/edit', [AdminController::class, 'editPassword'])->name('editPassword')->middleware(['auth','admin']);
 Route::put('/admin/{user}/detail/', [AdminController::class, 'updateUser'])->name('updateUser')->middleware(['auth','admin']);
 Route::put('/admin/{user}/detail/', [AdminController::class, 'changeRole'])->name('changeRole')->middleware(['auth','admin']);
+Route::put('/admin/{user}/detail/', [AdminController::class, 'updateProfileAdmin'])->name('updateProfileAdmin')->middleware(['auth','admin']);

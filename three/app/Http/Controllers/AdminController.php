@@ -81,6 +81,39 @@ class AdminController extends Controller
         }
     }
 
+    public function updateProfileAdmin(Request $request, $id)
+    {
+       $user = User::findOrFail($id);
+
+        if ($request->hasFile('picture')) {
+            // Delete the old picture if it exists
+            if ($user->picture && Storage::disk('local')->exists('public/profile/' . $user->picture)) {
+                Storage::disk('local')->delete('public/profile/' . $user->picture);
+            }
+        
+            // Upload new picture
+            $image = $request->file('picture');
+            $image->storeAs('public/profile', $image->hashName());
+        
+            // Update the picture
+            $user->update(['picture' => $image->hashName()]);
+        }
+        
+        // Update the username if provided
+        if (!empty($request->username)) {
+            $user->update(['username' => $request->username]);
+        }
+
+
+        if ($user) {
+            //redirect dengan pesan sukses
+            return redirect()->route('admin.dashboard')->with(['success' => 'Book updated successfully!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('admin.dashboard')->with(['error' => 'Update failed']);
+        }
+    }
+
     public function changeRole(Request $request, User $user) {
         $user = User::findOrFail($user->id);
         
