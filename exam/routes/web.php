@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::get('/questions', [QuestController::class, 'index'])->name('index');
 
 Route::get('/questions/add', [QuestController::class, 'addView'])->name('addView');
+Route::post('/questions/add', [QuestController::class, 'store'])->name('store');

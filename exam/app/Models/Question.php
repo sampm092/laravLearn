@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Question extends Model
     {
-        use HasFactory, Notifiable;
+        use HasFactory;
         protected $fillable = [
             'question_text'
         ];

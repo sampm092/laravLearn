@@ -17,7 +17,7 @@ class AnswerTable extends Migration
             $table->id();
             $table->unsignedBigInteger('question_id');
             $table->text('option_text');
-            $table->boolean('is_correct');
+            $table->boolean('is_correct')->default(false);;
             $table->timestamps();
 
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
