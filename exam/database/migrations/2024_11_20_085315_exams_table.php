@@ -15,8 +15,7 @@ class ExamsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->text('question');
-            $table->timestamp('created_at')->nullable();
+            $table->text('question_text');
             $table->timestamps();
         });
     }

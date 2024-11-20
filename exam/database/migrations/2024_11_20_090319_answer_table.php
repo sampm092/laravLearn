@@ -15,11 +15,12 @@ class AnswerTable extends Migration
     {
         Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->foreign('question_id')->references('id')->on('questions');
+            $table->unsignedBigInteger('question_id');
             $table->text('option_text');
             $table->boolean('is_correct');
-            $table->timestamp('created_at')->nullable();
             $table->timestamps();
+
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
         });
     }
 
@@ -30,6 +31,6 @@ class AnswerTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('options');
     }
 }
