@@ -8,7 +8,8 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <form action="{{route('update', $question->id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('update', $question->id)}}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
@@ -44,8 +45,13 @@
 
                             <button type="submit" class="btn btn-md btn-primary">UBAH</button>
                             <button type="reset" class="btn btn-md btn-warning">ULANG</button>
-                            <a href="{{ route('addView') }}" class="btn btn-md btn-secondary">KEMBALI</a>
+                            <a href="{{ route('index') }}" class="btn btn-md btn-secondary">KEMBALI</a>
 
+                        </form>
+                        <form class="ml-auto" action="{{ route('destroyQ', $question->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </div>
                 </div>

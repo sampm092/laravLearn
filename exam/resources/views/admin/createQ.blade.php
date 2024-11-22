@@ -13,7 +13,7 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Pertanyaan</label>
                                 <textarea class="form-control @error('q') is-invalid @enderror"
-                                    name="questionText" placeholder="Masukkan soal"></textarea>
+                                    name="question_text" placeholder="Masukkan soal"></textarea>
 
                                 <!-- error message untuk title -->
                                 @error('q')
@@ -62,7 +62,7 @@
 
                             <button type="submit" class="btn btn-md btn-primary">TAMBAH</button>
                             <button type="reset" class="btn btn-md btn-warning">ULANG</button>
-                            <a href="{{ route('addView') }}" class="btn btn-md btn-secondary">KEMBALI</a>
+                            <a href="{{ route('index') }}" class="btn btn-md btn-secondary">KEMBALI</a>
 
                         </form>
                     </div>

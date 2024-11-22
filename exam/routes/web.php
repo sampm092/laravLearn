@@ -24,3 +24,5 @@ Route::get('/questions/add', [QuestController::class, 'addView'])->name('addView
 Route::get('/questions/{question}/edit/', [QuestController::class, 'editView'])->name('editView');
 Route::put('{question}/', [QuestController::class, 'update'])->name('update');
 Route::post('/questions/add', [QuestController::class, 'store'])->name('store');
+Route::delete('/questions/{id}', [QuestController::class, 'destroyQ'])->name('destroyQ');
+Route::put('/questions/{option}/', [QuestController::class, 'trueAnswer'])->name('trueAnswer');
