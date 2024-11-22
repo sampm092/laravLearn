@@ -55,28 +55,17 @@ class QuestController extends Controller
     {
 
         $question = Question::findOrFail($question->id);
-        $question = Question::update([
-            'question_text' => $request->questionText,
-        ]);
-        // $this->validate($request, [
-        //     'title' => 'required',
-        //     'author' => 'required |max:200',
-        //     'desc' => 'required'
-        // ]);
-        $options = [
-            $request->option1,
-            $request->option2,
-            $request->option3,
-            $request->option4,
-            $request->option5,
-        ];
 
-        foreach ($options as $optionText) {
-            Option::update([
-                'option_text' => $optionText,
+            $question->update([
+                'question_text' => $request->question_text,
             ]);
 
-            return view('admin.questionlist', compact('question', 'options'));
+        if ($question) {
+            //redirect dengan pesan sukses
+            return redirect()->route('index')->with(['success' => 'Book updated successfully!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('index')->with(['error' => 'Update failed']);
         }
     }
 }

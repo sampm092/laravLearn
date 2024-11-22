@@ -8,13 +8,13 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <form action="update" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('update', $question->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
                                 <label class="font-weight-bold">Pertanyaan</label>
-                                <textarea class="form-control @error('q') is-invalid @enderror" name="questionText"
-                                    placeholder="Masukkan soal">{{ old('questionText', $question->question_text) }}</textarea>
+                                <textarea class="form-control @error('q') is-invalid @enderror" name="question_text"
+                                    placeholder="Masukkan soal">{{ old('question_text', $question->question_text) }}</textarea>
 
                                 <!-- error message untuk title -->
                                 @error('q')
