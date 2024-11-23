@@ -15,14 +15,14 @@
                         <p style="width:90%">
                             {{ $option->option_text }}
                             @if ($option->is_correct == 1)
-                                <b> (T)</b>
+                                <b> (B)</b>
                             @endif
                         </p>
                         <form action="{{route('trueAnswer', $option->id)}}" method="POST">
                             @csrf
                             @method('PUT')
                             <button type=" submit" class="btn btn-primary"
-                                style="width:fit-content;min-width: 80px;">True</button>
+                                style="width:fit-content;min-width: 80px;">B/S</button>
                         </form>
 
                     </div>
