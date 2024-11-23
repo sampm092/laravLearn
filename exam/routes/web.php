@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestController; 
+use App\Http\Controllers\MainController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,10 @@ use App\Http\Controllers\QuestController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MainController::class, 'mainIndex'])->name('mainIndex');
+
 
 Route::get('/questions', [QuestController::class, 'index'])->name('index');
-
 Route::get('/questions/add', [QuestController::class, 'addView'])->name('addView');
 Route::get('/questions/{question}/edit/', [QuestController::class, 'editView'])->name('editView');
 Route::put('{question}/', [QuestController::class, 'update'])->name('update');
