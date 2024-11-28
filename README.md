@@ -15,4 +15,5 @@ Libur 1: 9/11/24 <br />
 Libur 2: 10/11/24 <br />
 Absen 3: 13/11/24 -> push Guild War GBF <br />
 Absen 4: 16/11/24 -> On a trip... left my pc at home -> 18/11/24 <br />
-Absen 5: 24/11/24 -> Preparing for test
+Absen 5: 24/11/24 -> Preparing for test <br />
+Absen 6: 27-28/11/24 -> Can't do much because of test
