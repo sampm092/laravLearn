@@ -3,6 +3,9 @@ blog = 2nd practice using https://qadrlabs.com/post/belajar-laravel-8-membuat-ap
 three = 3rd practice using https://youtu.be/iniIUcAKuLA?si=61-DTKNDjrIEEhb2 with my own project and also based on the flowchart
 exam = 4th practice using previous project as guidelines
 
+NOTE :
+- YOU CAN MAKE ERD, DFD, FLOWCHART, DATA MODEL, USE CASE DIAGRAM OF THESE PROJECT
+
 Three flowchart
 ![image](https://github.com/user-attachments/assets/24daa769-c234-4621-8211-32f592323902)
 
