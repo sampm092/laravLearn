@@ -30,4 +30,5 @@ class InvoiceFilter extends ApiFilter
         'lt' => '<',
         'ne' => '!='
     ];
+
 }
