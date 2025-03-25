@@ -16,7 +16,10 @@ class Controller extends BaseController
 
     public function getCustomers()
     {
-        $response = Http::get('http://127.0.0.1:8000/api/books');
+        // $response = Http::get('http://127.0.0.1:8000/api/books');
+        $token = '1|zI221DDUTxASPDqUdHDiAWLIYJlIxuG8yAyRXD1q';
+        $response = Http::withToken($token)
+                    ->get('http://127.0.0.1:8000/api/v1/customers');
         
         if ($response->successful()) {
             // dd($response->json());

@@ -24,11 +24,13 @@
             <th>Genre</th>
         </tr>
         @foreach($customers['data'] as $customer)
+            <!-- The 'title' is inside the 'data' array, and
+            The 'data' array is inside $customers so we use $customers['data']-->
             <tr>
-                <td><img class="book-cover" src="{{ $customer['cover'] }}" alt=""></td>
-                <td>{{ $customer['title'] }}</td>
-                <td>{{ $customer['author'] }}</td>
-                <td>{{ $customer['genre'] }}</td>
+                <td>{{ $customer['name'] }}</td>
+                <td>{{ $customer['address'] }}</td>
+                <td>{{ $customer['email'] }}</td>
+                <td>{{ $customer['city'] }}</td>
             </tr>
         @endforeach
     </table>
