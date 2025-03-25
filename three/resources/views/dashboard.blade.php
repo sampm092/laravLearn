@@ -18,8 +18,8 @@
         }
 
         .card {
-            width: 250px;
-            height: 325px;
+            width: 200px;
+            height: 275px;
             margin: 30px 15px;
         }
 
@@ -109,7 +109,7 @@
             <div>
                 <div class="alt-card " style="background-color:transparent; margin: 30px">
                     <a class="border-curved shadow" href="{{ route('detailed', $book->id) }}">
-                        <div class="border-curved" style="width:250px; height: 325px;}">
+                        <div class="border-curved" style="width:200px; height: 275px;}">
                             <img class="book-cover" src="{{ Storage::url('public/books/' . $book->cover) }}" alt="">
                             <div class="judul_art">
                                 <p

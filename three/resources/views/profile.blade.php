@@ -316,9 +316,9 @@ BOOK LIST -->
         var books = document.getElementById("book-sect");
 
         books.classList.add("none");
-        nav_link[3].classList.remove("active");
+        nav_link[2].classList.remove("active");
         profile.classList.remove("none");
-        nav_link[4].classList.add("active");
+        nav_link[3].classList.add("active");
     }
 
     function toBooks() {
@@ -327,8 +327,8 @@ BOOK LIST -->
 
         books.classList.remove("none");
         profile.classList.add("none");
-        nav_link[4].classList.remove("active");
-        nav_link[3].classList.add("active");
+        nav_link[3].classList.remove("active");
+        nav_link[2].classList.add("active");
     }
 
     function enableInput() {
