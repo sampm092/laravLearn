@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 Route::get('/index', [Controller::class, 'showCustomers']);
 Route::get('/list', [Controller::class, 'showLists']);
+Route::get('/storePage', [Controller::class, 'storePage']);
+Route::post('/store', [Controller::class, 'store'])->name('store');
