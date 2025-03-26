@@ -17,18 +17,18 @@
         }
     </style>
     <div>
-        @if(is_array($customers))
-            @foreach($customers['data'] as $customer)
-                <!-- The 'title' is inside the 'data' array, and
-                                    The 'data' array is inside $customers so we use $customers['data']-->
-                <h1>{{ $customer['title'] }}</h1>
-                <p> {{ $customer['author'] }}</p>
-                <p>Genre : {{ $customer['genre'] }}</p>
-                <p>  {{ $customer['description'] }}</p>
-            @endforeach
-        @else
-            <p>No data available</p>
-        @endif
+        @foreach($customers as $customer)
+            <!-- The 'title' is inside the 'data' array, and
+                                                The 'data' array is inside $customers so we use $customers['data']-->
+            <h1>{{ $customer['title'] }}</h1>
+            <p> {{ $customer['author'] }}</p>
+            <p>Genre : {{ $customer['genre'] }}</p>
+            <p> {{ $customer['description'] }}</p>
+        @endforeach
+
+        <div style="width: fit-content; max-height:1rem; display: flex;">
+            <div">{{ $customers->links() }}</div>
+        </div>
 
     </div>
 
