@@ -16,22 +16,30 @@ class Controller extends BaseController
 
     public function getCustomers()
     {
-        // $response = Http::get('http://127.0.0.1:8000/api/books');
-        $token = 'e5254be37cb9300a031e97303ae320f3ded941116e74f92d4f9794448bc8a5d1';
-        $response = Http::withToken($token)
-                    ->get('https://simple-books-api.glitch.me/books');
+        $response = Http::get('http://127.0.0.1:8000/api/books');
+        // $token = 'e5254be37cb9300a031e97303ae320f3ded941116e74f92d4f9794448bc8a5d1';
+        // $response = Http::withToken($token)
+        //             ->get('https://simple-books-api.glitch.me/books');
         
         if ($response->successful()) {
-            // dd($response->json());
-            return $response->json(); // Convert response to JSON array
-        }
+ 
+            return $response->json();
+    }
         return response()->json(['error' => 'Failed to fetch data'], $response->status());
 
     }
+
     public function showCustomers()
     {
         $customers = $this->getCustomers();
+        // dd($customers);
         return view('index', compact('customers'));
+    }
+    public function showLists()
+    {
+        $customers = $this->getCustomers();
+        // dd($customers);
+        return view('list', compact('customers'));
     }
 
 

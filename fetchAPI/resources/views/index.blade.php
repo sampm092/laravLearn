@@ -16,29 +16,21 @@
             border-radius: 20px;
         }
     </style>
-    <table>
-        <tr>
-            <!-- <th>Cover</th> -->
-            <th>Title</th>
-            <th>Author</th>
-            <th>Genre</th>
-        </tr>
+    <div>
         @if(is_array($customers))
-            @foreach($customers as $customer)
+            @foreach($customers['data'] as $customer)
                 <!-- The 'title' is inside the 'data' array, and
-                    The 'data' array is inside $customers so we use $customers['data']-->
-                <tr>
-
-                    <td>{{ $customer['name'] }}</td>
-                    <td>{{ $customer['type'] }}</td>
-                    <td>{{ $customer['available'] }}</td>
-                </tr>
+                                    The 'data' array is inside $customers so we use $customers['data']-->
+                <h1>{{ $customer['title'] }}</h1>
+                <p> {{ $customer['author'] }}</p>
+                <p>Genre : {{ $customer['genre'] }}</p>
+                <p>  {{ $customer['description'] }}</p>
             @endforeach
         @else
             <p>No data available</p>
         @endif
-    </table>
 
+    </div>
 
 </body>
 

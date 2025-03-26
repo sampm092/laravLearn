@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/index', [Controller::class, 'showCustomers']);
+Route::get('/list', [Controller::class, 'showLists']);
